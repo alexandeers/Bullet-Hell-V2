@@ -34,10 +34,13 @@ public class PlayerMovement : MonoBehaviour
         var x = rb.velocity.x;
         var y = rb.velocity.y;
 
+        int walkDirection = y != 0 ? (int)Mathf.Sign(y) : 0;
+
         if (isWalking) {
             animator.SetBool("isWalking", true);
             animator.SetFloat("x", x);
             animator.SetFloat("y", y);
+            animator.SetInteger("walkDirection", walkDirection);
         } else {
             animator.SetBool("isWalking", false);
         }   

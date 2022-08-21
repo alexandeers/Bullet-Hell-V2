@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
+    public static PlayerHandler instance;
     PlayerMovement playerMovement;
+    PlayerStats playerStats;
 
-    private void Start() {
+    void Start() {
         playerMovement = GetComponent<PlayerMovement>();
+        playerStats = GetComponent<PlayerStats>();
+
+        if(instance == null) {
+            instance = this;
+        } else {
+            Debug.Log("PlayerHandler already exists.");
+        }
     }
     
-    private void FixedUpdate() {
+    void FixedUpdate() {
         playerMovement.UpdateMovement();
+    }
+
+    public void TakeDamage(int damage) {
+        playerStats.health -= damage;
     }
 
 }

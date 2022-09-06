@@ -5,20 +5,22 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    //Core stats
     [Range(0f, 1f)] public float health;
     [Range(30f, 1600f)] public int maxHealth;
-
     [Range(0f, 1f)] public float mana;
     [Range(30f, 1000f)] public int maxMana;
 
-    [Range(0f, 98f)] public int level;
-
+    //Experience
+    [Range(1f, 99f)] public int level;
+    public int experience, experienceNeededToLevel;
+    public int skillPoints;
     [SerializeField] Controls controls;
     GUIHandler guiHandler;
 
     void Start() {
         GetReferences();
-        guiHandler.RefreshUI();
+        guiHandler.RefreshUIComponents();
     }
 
     void OnValidate() {
@@ -28,7 +30,7 @@ public class PlayerStats : MonoBehaviour
         
         health = Mathf.Clamp(health, 0, maxHealth);
         mana = Mathf.Clamp(mana, 0, maxMana);
-        guiHandler.RefreshUI();
+        guiHandler.RefreshUIComponents();
     }
 
     void Update() {
@@ -46,7 +48,7 @@ public class PlayerStats : MonoBehaviour
         if(Input.GetKeyDown(controls.debug_increaseStaminaMax)) {
             maxMana += 50 * inverse;
         }
-        guiHandler.RefreshUI();
+        guiHandler.RefreshUIComponents();
     }
 
     private void GetReferences(){

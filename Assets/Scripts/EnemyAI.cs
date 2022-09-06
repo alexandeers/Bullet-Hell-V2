@@ -42,24 +42,32 @@ public class EnemyAI : MonoBehaviour
     }
 
     void Update() {
-        HandleMovement();
+        HandleMovementAndAnimation();
     }
 
     #region EnemyAI
 
     public void DealDamage() 
     {
-        PlayerHandler.instance.TakeDamage(enemyStats.damage);
+        PlayerHandler.instance.AbsorbDamage(enemyStats.damage);
         isAttacking = false;
-        Debug.Log("Dealt " + enemyStats.damage + " damage to player.");
     }
 
-    void HandleMovement()
+    public void AbsorbDamage(int damage) {
+        health -= damage;
+
+        if(health <= 0) {
+            Destroy(gameObject);
+            return;
+        }        
+    }
+
+    void HandleMovementAndAnimation()
     {
         Vector2 playerPos = PlayerHandler.instance.transform.position;
         sprite.flipX = playerPos.x < transform.position.x;
 
-        //Check if player is in range
+        //Check if player is in range for an attack
         if (Vector2.Distance(transform.position, playerPos) < enemyStats.attackRange)
         {
 
@@ -71,7 +79,7 @@ public class EnemyAI : MonoBehaviour
                 isAttacking = true;
             }
         }
-        else
+        else //Move towards player
         {
             if(!animator.GetNextAnimatorStateInfo(0).IsName("Attack")) {
                 //Move towards player
@@ -83,4 +91,6 @@ public class EnemyAI : MonoBehaviour
     }
 
     #endregion
+
+    public int GetHealth() => health;
 }

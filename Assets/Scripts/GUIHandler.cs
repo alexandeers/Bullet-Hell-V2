@@ -33,7 +33,7 @@ public class GUIHandler : MonoBehaviour
         GetReferences();
     }
 
-    public void RefreshUI() {
+    public void RefreshUIComponents() {
         GetReferences();
         healthBg.rectTransform.sizeDelta = new Vector2(maxHealth, healthBg.rectTransform.sizeDelta.y);
         healthBar.rectTransform.sizeDelta = new Vector2((health/maxHealth)*healthBg.rectTransform.sizeDelta.x-13f, healthBar.rectTransform.sizeDelta.y);

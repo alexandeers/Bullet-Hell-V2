@@ -23,7 +23,7 @@ public class PlayerHandler : MonoBehaviour
         playerMovement.UpdateMovement();
     }
 
-    public void TakeDamage(int damage) {
+    public void AbsorbDamage(int damage) {
         playerStats.health -= damage;
     }
 

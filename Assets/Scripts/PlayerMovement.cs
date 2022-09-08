@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update() {
-        HandleAnimator();
+        // HandleAnimator();
     }
 
     public void HandleAnimator() {

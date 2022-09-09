@@ -35,10 +35,11 @@ public class GUIHandler : MonoBehaviour
     public void RefreshUIComponents() {
         GetReferences();
 
-        var hpBarSizeSolver = Mathf.Log10(playerStats.maxHealth/3) * (0.2f * playerStats.maxHealth) + 90f;
+        // var hpBarSizeSolver = Mathf.Log10(playerStats.maxHealth.Value/3) * (0.2f * playerStats.maxHealth.Value) + 90f;
+        var hpBarSizeSolver = 800f*(1-Mathf.Exp(-0.001f*playerStats.maxHealth.Value)) + 50f;
         var manaBarSizeSolver = Mathf.Log10(playerStats.maxMana/3) * (0.2f * playerStats.maxMana) + 90f;
         var totalHealthMana = manaBarSizeSolver + hpBarSizeSolver;
-        var healthNormalized = playerStats.health / playerStats.maxHealth;
+        var healthNormalized = playerStats.health / playerStats.maxHealth.Value;
         var manaNormalized = playerStats.mana / playerStats.maxMana;
 
         container.anchoredPosition = new Vector2(((-totalHealthMana) / 2f) - 5f, container.anchoredPosition.y);

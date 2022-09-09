@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 {
     //Core stats
     [Range(0f, 1f)] public float health;
-    [Range(30f, 1600f)] public int maxHealth;
+    public CharacterStat maxHealth;
     [Range(0f, 1f)] public float mana;
     [Range(30f, 1000f)] public int maxMana;
 
@@ -32,10 +32,10 @@ public class PlayerStats : MonoBehaviour
 
     void OnValidate() {
         GetReferences();
-        health *= maxHealth;
+        health *= maxHealth.Value;
         mana *= maxMana;
         
-        health = Mathf.Clamp(health, 0, maxHealth);
+        health = Mathf.Clamp(health, 0, maxHealth.Value);
         mana = Mathf.Clamp(mana, 0, maxMana);
         guiHandler.RefreshUIComponents();
     }
@@ -72,12 +72,12 @@ public class PlayerStats : MonoBehaviour
     }
 
     void IncreaseHealth() {
-        maxHealth += (int)(((float)maxHealth * 0.01f) * ((100 - level) * 0.07f));
-        health = maxHealth;
+        maxHealth.AddModifier( new StatModifier((int)(((float)maxHealth.Value * 0.01f) * ((200 - level) * 0.03f)), StatModType.Flat, this) );
+        health = maxHealth.Value;
     }
 
     void IncreaseMana() {
-        maxMana += (int)(((float)maxMana * 0.01f) * ((100 - level) * 0.06f));
+        maxMana += (int)(((float)maxMana * 0.01f) * ((100 - level) * 0.065f));
         mana = maxMana;
     }
 
@@ -97,12 +97,17 @@ public class PlayerStats : MonoBehaviour
         }
         if (Input.GetKeyDown(controls.debug_increaseHealthMax))
         {
-            maxHealth += 50 * inverse;
+            maxHealth.AddModifier(new StatModifier(50*inverse, StatModType.Flat, this));
             guiHandler.RefreshUIComponents();
         }
         if (Input.GetKeyDown(controls.debug_increaseStaminaMax))
         {
             maxMana += 50 * inverse;
+            guiHandler.RefreshUIComponents();
+        }
+
+        if(Input.GetKeyDown(KeyCode.G)) {
+            maxHealth.AddModifier(new StatModifier(0.5f, StatModType.PercentAdd, this));
             guiHandler.RefreshUIComponents();
         }
     }

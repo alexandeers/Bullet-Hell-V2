@@ -7,8 +7,10 @@ public class ItemHandler : MonoBehaviour
     [SerializeField] Item[] items;
 
     void Update() {
+        var index = 0;
         foreach(Item item in items) {
-            item.HandleBehaviour();
+            item.HandleBehaviour(transform.GetChild(index));
+            index++;
         }
     }
 }

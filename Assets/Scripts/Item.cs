@@ -8,21 +8,10 @@ public class Item : ScriptableObject
     [Header("Basic Stats")]
     public new string name;
     public string description;
-    public int level;
-    public LevelValues[] levelValues; // consider an array here
 
     [Header("Projectile Stats")]
     public Projectile projectile;
-    public int projectileDamage, projectileCount; 
-    public float projectileSpeed;
 
-    public virtual void HandleBehaviour(){}
-    public virtual void OnUpgrade(){}
+    public virtual void HandleBehaviour(Transform bulletPosition){}
 
-}
-
-[System.Serializable]
-public class LevelValues 
-{
-    public int[] stats;
 }

@@ -10,8 +10,8 @@ public class PlayerStats : MonoBehaviour
     //Core stats
     [Range(0f, 1f)] public float health;
     public CharacterStat maxHealth;
-    [Range(0f, 1f)] public float mana;
-    [Range(30f, 1000f)] public int maxMana;
+    [Range(1f, 1f)] public float shield;
+    [Range(1f, 1000f)] public int maxShield;
 
     //Experience
     public int level = 0;
@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
 
     public float additionMultiplier, powerMultiplier, divisonMultiplier;
 
+    public bool isShieldEnabled = true;
 
     [SerializeField] Controls controls;
     GUIHandler guiHandler;
@@ -33,10 +34,10 @@ public class PlayerStats : MonoBehaviour
     void OnValidate() {
         GetReferences();
         health *= maxHealth.Value;
-        mana *= maxMana;
+        shield *= maxShield;
         
         health = Mathf.Clamp(health, 0, maxHealth.Value);
-        mana = Mathf.Clamp(mana, 0, maxMana);
+        shield = Mathf.Clamp(shield, 0, maxShield);
         guiHandler.RefreshUIComponents();
     }
 
@@ -48,6 +49,8 @@ public class PlayerStats : MonoBehaviour
         }
 
         if(experience >= experienceNeededToLevel) LevelUp();
+
+        guiHandler.RefreshUIComponents();
     }
 
     public void GainExperienceFlat(int xpGained) => experience += xpGained;
@@ -72,13 +75,14 @@ public class PlayerStats : MonoBehaviour
     }
 
     void IncreaseHealth() {
-        maxHealth.AddModifier( new StatModifier((int)(((float)maxHealth.Value * 0.01f) * ((200 - level) * 0.03f)), StatModType.Flat, this) );
+        // maxHealth.AddModifier( new StatModifier((int)(((float)maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 5f), StatModType.Flat, this) );
+        maxHealth.BaseValue += (int)(maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 5f;
         health = maxHealth.Value;
     }
 
     void IncreaseMana() {
-        maxMana += (int)(((float)maxMana * 0.01f) * ((100 - level) * 0.065f));
-        mana = maxMana;
+        // maxShield += (int)(((float)maxShield * 0.01f) * ((100 - level) * 0.065f));
+        shield = maxShield;
     }
 
     private void DebugControls()
@@ -92,7 +96,7 @@ public class PlayerStats : MonoBehaviour
         }
         if (Input.GetKeyDown(controls.debug_increaseStamina))
         {
-            mana += 50 * inverse;
+            shield += 50 * inverse;
             guiHandler.OnDamaged(false);
         }
         if (Input.GetKeyDown(controls.debug_increaseHealthMax))
@@ -102,7 +106,7 @@ public class PlayerStats : MonoBehaviour
         }
         if (Input.GetKeyDown(controls.debug_increaseStaminaMax))
         {
-            maxMana += 50 * inverse;
+            maxShield += 50 * inverse;
             guiHandler.RefreshUIComponents();
         }
 

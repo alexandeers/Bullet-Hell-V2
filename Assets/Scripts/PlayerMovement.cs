@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,43 +7,40 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     private Rigidbody2D rb;
-
-    [Header("Animations")]
-    [SerializeField] Animator animator;
-    [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] AnimationClip walkUp, walkDown, walkLeft, walkRight;
-    [SerializeField] AnimationClip idleUp, idleDown, idleLeft, idleRight;
+    [SerializeField] Transform spriteParent;
 
     [Header("Variables")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] float rotationSpeed;
+    private float sizeLerp;
+    [SerializeField] float stretchStrength;
+    [HideInInspector] public Vector2 movementInput; 
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
-        animator.speed = 0.15f;
     }
 
     public void UpdateMovement() {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
+        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        rb.velocity += movementInput * moveSpeed * Time.fixedDeltaTime;
     }
 
     void Update() {
-        // HandleAnimator();
+        HandleSquashAndStretch();
     }
 
-    public void HandleAnimator() {
-        var isWalking = rb.velocity.x != 0 || rb.velocity.y != 0;
-        var x = rb.velocity.x;
-        var y = rb.velocity.y;
-
-        int walkDirection = y != 0 ? (int)Mathf.Sign(y) : 0;
-
-        if (isWalking) {
-            animator.SetBool("isWalking", true);
-            animator.SetFloat("x", x);
-            animator.SetFloat("y", y);
-            animator.SetInteger("walkDirection", walkDirection);
-        } else {
-            animator.SetBool("isWalking", false);
-        }   
+    private void HandleSquashAndStretch()
+    {
+        if(rb.velocity != Vector2.zero) 
+            sizeLerp = Mathf.Lerp(spriteParent.localScale.y, 1f + Mathf.Abs(rb.velocity.magnitude * stretchStrength), Time.deltaTime * 10f);
+        else
+            sizeLerp = Mathf.Lerp(spriteParent.localScale.y, 1f, Time.deltaTime * 10f);
+        
+        spriteParent.localScale = new Vector3(1f - (sizeLerp - 1f) * 0.5f, sizeLerp, 1f);
+        
+        if(rb.velocity != Vector2.zero) {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, rb.velocity);
+            spriteParent.rotation = Quaternion.RotateTowards(spriteParent.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }

@@ -31,7 +31,10 @@ public class ProjectileHandler : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if(!projectileIsSet) return;
+        if(!projectileIsSet) {
+            rigidbody.velocity = Vector2.zero;
+            return;
+        }
 
         if(projectile.isHoming) HandleHomingBehaviour();
         else HandleDefaultBehaviour();
@@ -73,7 +76,11 @@ public class ProjectileHandler : MonoBehaviour
         if(((1<<other.gameObject.layer) & enemyLayer) != 0)
         {
             other.GetComponent<EnemyAI>().AbsorbDamage(projectile.damage);
-            Destroy(gameObject);
+            transform.SetParent(other.transform, true);
+            projectileIsSet = false;
+        } else {
+            projectileIsSet = false;
+
         }
     }
     public void SetProjectile(Projectile _projectile, float variableSpeed) {

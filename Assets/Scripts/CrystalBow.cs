@@ -10,6 +10,7 @@ public class CrystalBow : Item, IUseable
     float charge;
     float shootOffset;
     ProjectileHandler loadedArrow;
+    Material chargeMaterial => chargeTransform.GetComponent<SpriteRenderer>().material;
 
     public void Use() {
         switch (state)
@@ -22,7 +23,7 @@ public class CrystalBow : Item, IUseable
                     loadedArrow.GetComponent<Transform>().SetParent(chargeTransform);
                 }
 
-                if(Input.GetKeyDown(KeyCode.Mouse0)) {
+                if(Input.GetKey(KeyCode.Mouse0)) {
                     state = BowState.Charging;
                 }
                 break;
@@ -51,7 +52,9 @@ public class CrystalBow : Item, IUseable
 
     private void Update() {
         shootOffset = Mathf.Clamp01(shootOffset - Time.deltaTime);
-        Debug.Log($"Duration: {charge}. State: {state}");
+        chargeMaterial.SetFloat("_Flash", charge);
+
+        // Debug.Log($"Duration: {charge}. State: {state}");
         chargeTransform.localScale = Vector2.Lerp(chargeTransform.localScale, Vector2.one + (Vector2.one * charge * 0.25f), Time.deltaTime * 20f);
         chargeTransform.localPosition = Vector2.Lerp(chargeTransform.localPosition, new Vector2(0f, -charge * 0.75f - shootOffset), Time.deltaTime * 20f);
     }

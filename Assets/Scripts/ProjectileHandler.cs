@@ -7,11 +7,11 @@ public class ProjectileHandler : MonoBehaviour
 {
 
     [SerializeField] Projectile projectile;
-    // LayerMask LayerMask.NameToLayer("Enemy");
     Transform target;
     new Rigidbody2D rigidbody;
     new CircleCollider2D collider;
     [SerializeField] LayerMask enemyLayer;
+    float projectileSpeed;
 
     private void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -23,7 +23,7 @@ public class ProjectileHandler : MonoBehaviour
     }
 
     IEnumerator Lifetime() {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 
@@ -32,9 +32,8 @@ public class ProjectileHandler : MonoBehaviour
         else HandleDefaultBehaviour();
     }
 
-    private void HandleDefaultBehaviour() {
-        transform.rotation = transform.parent.rotation;
-        rigidbody.velocity = transform.up * projectile.speed;
+    private void HandleDefaultBehaviour() {        
+        rigidbody.velocity = transform.up * projectileSpeed;
     }
     private void HandleHomingBehaviour() {
         GetTarget();
@@ -70,5 +69,8 @@ public class ProjectileHandler : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetProjectile(Projectile _projectile) => projectile = _projectile;
+    public void SetProjectile(Projectile _projectile, float variableSpeed) {
+        projectile = _projectile;
+        projectileSpeed = projectile.speed + (projectile.speed * variableSpeed * 2f);
+    } 
 }

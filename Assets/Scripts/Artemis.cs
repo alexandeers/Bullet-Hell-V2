@@ -10,8 +10,8 @@ public class Artemis : Summon
     void ShootBullet() {
         if(!GetEnemyInVicinity()) return;
         
-        var _bullet = Instantiate(bullet.prefab, transform.position, Quaternion.identity).GetComponent<ProjectileHandler>();
-        _bullet.SetProjectile(bullet);
+        // var _bullet = Instantiate(bullet.prefab, transform.position, Quaternion.identity).GetComponent<ProjectileHandler>();
+        // _bullet.SetProjectile(bullet);
     }
 
 }

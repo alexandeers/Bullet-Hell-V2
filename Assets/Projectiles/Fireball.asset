@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   name: Fireball
-  speed: 5
+  speed: 20
   damage: 100
   sprite: {fileID: 21300000, guid: a7f1d02fbb914d64c9ab99de634c110e, type: 3}
   prefab: {fileID: 8744528064764270007, guid: 17d308ad75503874d87a78debcabf0cb, type: 3}
-  isHoming: 1
+  isHoming: 0
   faceDirection: 0
   angleSpeed: 500

@@ -5,6 +5,7 @@ public class EquipmentHandler : MonoBehaviour
 {
     [Header("References")]
     public List<Equipment> equippedItems = new List<Equipment>();
+    public Transform useable;
     public Transform equipPivot;
     private Camera cam;
     [SerializeField] float rotationSpeed;
@@ -19,5 +20,9 @@ public class EquipmentHandler : MonoBehaviour
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         equipPivot.rotation = Quaternion.Lerp(equipPivot.rotation, rotation, Time.deltaTime * rotationSpeed);
+
+        if(Input.GetKey(KeyCode.Mouse0)) {
+            useable.GetComponent<IUseable>().Use();
+        }
     }
 }

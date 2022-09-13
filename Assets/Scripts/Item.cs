@@ -6,8 +6,10 @@ public interface IUseable {
     public virtual void Use() { }
 }
 
-public interface IChargeable {
-    public virtual void Use() { }
+public enum BowState {
+    Ready,
+    Charging,
+    Cooldown
 }
 
 public class Item : MonoBehaviour

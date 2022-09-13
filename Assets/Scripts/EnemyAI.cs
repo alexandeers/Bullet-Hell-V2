@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
 
     public void DealDamage() 
     {
-        PlayerHandler.instance.AbsorbDamage(enemyStats.damage);
+        PlayerHandler.instance.GetComponent<IDamageable>().AbsorbDamage(enemyStats.damage);
         isAttacking = false;
     }
 

@@ -74,10 +74,9 @@ public class GUIHandler : MonoBehaviour
         
     }
 
-    public void OnDamaged(bool isHealth) { //Väldigt ooptimerad funktion men jag orkar inte.
-        RectTransform damagedBar = Instantiate(damagedBarTemplate, transform).GetComponent<RectTransform>();
-
-        if(isHealth) {
+    public void OnDamaged(bool healthDamage, bool shieldDamage) { //Väldigt ooptimerad funktion men jag orkar inte.
+        if(healthDamage) {
+            RectTransform damagedBar = Instantiate(damagedBarTemplate, transform).GetComponent<RectTransform>();
             var beforeDamageFillAmount = hpBar.sizeDelta.x;
             RefreshUIComponents();
             damagedBar.SetParent(hpBackground);
@@ -85,7 +84,10 @@ public class GUIHandler : MonoBehaviour
             damagedBar.gameObject.SetActive(true);
             damagedBar.anchoredPosition = new Vector2(hpBar.sizeDelta.x, 0);
             damagedBar.sizeDelta = new Vector2(beforeDamageFillAmount - hpBar.sizeDelta.x, damagedBar.sizeDelta.y);
-        } else {
+        }
+
+        if(shieldDamage) {
+            RectTransform damagedBar = Instantiate(damagedBarTemplate, transform).GetComponent<RectTransform>();
             var beforeDamageFillAmount = manaBar.sizeDelta.x;
             RefreshUIComponents();
             damagedBar.SetParent(manaBackground);

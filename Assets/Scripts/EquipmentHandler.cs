@@ -21,8 +21,8 @@ public class EquipmentHandler : MonoBehaviour
 
         equipPivot.rotation = Quaternion.Lerp(equipPivot.rotation, rotation, Time.deltaTime * rotationSpeed);
 
-        if(Input.GetKey(KeyCode.Mouse0)) {
-            useable.GetComponent<IUseable>().Use();
-        }
+        
+        useable.GetComponent<IUseable>().Use();
+
     }
 }

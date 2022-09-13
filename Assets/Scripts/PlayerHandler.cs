@@ -7,10 +7,12 @@ public class PlayerHandler : MonoBehaviour
     public static PlayerHandler instance;
     PlayerMovement playerMovement;
     PlayerStats playerStats;
+    GUIHandler guiHandler;
 
     void Start() {
         playerMovement = GetComponent<PlayerMovement>();
         playerStats = GetComponent<PlayerStats>();
+        guiHandler = GetComponent<GUIHandler>();
 
         if(instance == null) {
             instance = this;
@@ -22,9 +24,4 @@ public class PlayerHandler : MonoBehaviour
     void FixedUpdate() {
         playerMovement.UpdateMovement();
     }
-
-    public void AbsorbDamage(int damage) {
-        playerStats.health -= damage;
-    }
-
 }

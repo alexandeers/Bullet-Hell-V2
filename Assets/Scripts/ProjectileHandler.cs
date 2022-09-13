@@ -13,12 +13,15 @@ public class ProjectileHandler : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     float projectileSpeed;
 
+    bool projectileIsSet = false;
+
     private void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<CircleCollider2D>();
     }
 
     void Update() {
+        if(!projectileIsSet) return;
         StartCoroutine("Lifetime");
     }
 
@@ -28,6 +31,8 @@ public class ProjectileHandler : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if(!projectileIsSet) return;
+
         if(projectile.isHoming) HandleHomingBehaviour();
         else HandleDefaultBehaviour();
     }
@@ -63,6 +68,8 @@ public class ProjectileHandler : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        if(!projectileIsSet) return;
+
         if(((1<<other.gameObject.layer) & enemyLayer) != 0)
         {
             other.GetComponent<EnemyAI>().AbsorbDamage(projectile.damage);
@@ -72,5 +79,7 @@ public class ProjectileHandler : MonoBehaviour
     public void SetProjectile(Projectile _projectile, float variableSpeed) {
         projectile = _projectile;
         projectileSpeed = projectile.speed + (projectile.speed * variableSpeed * 2f);
+
+        projectileIsSet = true;
     } 
 }

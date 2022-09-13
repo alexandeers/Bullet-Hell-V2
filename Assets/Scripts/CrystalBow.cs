@@ -5,46 +5,64 @@ public class CrystalBow : Item, IUseable
 
     [SerializeField] Projectile projectile;
     [SerializeField] Transform bulletPosition;
-    [SerializeField] Transform charge;
-    Vector2 cache_ChargeScale;
-    float timerDuration = 1f;
-    float duration;
-    bool isCharging = false;
-
-    private void Start() {
-        cache_ChargeScale = charge.localScale;
-    }
+    [SerializeField] Transform chargeTransform;
+    BowState state = BowState.Ready;
+    float charge;
+    float shootOffset;
+    ProjectileHandler loadedArrow;
 
     public void Use() {
-        if(!isCharging && Input.GetKeyDown(KeyCode.Mouse0)) { duration = 0f; }
+        switch (state)
+        {
+            case BowState.Ready:
+                charge = 0f;
 
-        if(isCharging) {
-            duration += Time.deltaTime;
-            duration = Mathf.Clamp(duration, 0f, timerDuration);
+                if(!loadedArrow) {
+                    loadedArrow = ReadyArrow();
+                    loadedArrow.GetComponent<Transform>().SetParent(chargeTransform);
+                }
+
+                if(Input.GetKeyDown(KeyCode.Mouse0)) {
+                    state = BowState.Charging;
+                }
+                break;
+
+            case BowState.Charging:
+                if(Input.GetKey(KeyCode.Mouse0)) {
+                    charge = Mathf.Clamp01(charge + Time.deltaTime);
+                } else {
+                    ShootArrow();
+                    charge = 1f;
+                    shootOffset = 1f + charge * 0.5f;
+                    state = BowState.Cooldown;
+                    shootOffset = charge;
+                }
+                break;
+
+            case BowState.Cooldown:
+                charge -= Time.deltaTime * 2f;
+                if(charge <= 0) {
+                    state = BowState.Ready;
+                }
+                break;
         }
-
-        isCharging = Input.GetKey(KeyCode.Mouse0);
-
-        Debug.Log($"Duration: {duration}. IsCharging: {isCharging}");
     }
+
 
     private void Update() {
-        // charge.localScale = cache_ChargeScale + (cache_ChargeScale * duration * 0.5f);
-
-        charge.localScale = Vector2.Lerp(charge.localScale, cache_ChargeScale + (cache_ChargeScale * duration * 0.25f), Time.deltaTime * 20f);
-        charge.localPosition = Vector2.Lerp(charge.localPosition, new Vector2(0f, -duration * 0.75f), Time.deltaTime * 20f);
+        shootOffset = Mathf.Clamp01(shootOffset - Time.deltaTime);
+        Debug.Log($"Duration: {charge}. State: {state}");
+        chargeTransform.localScale = Vector2.Lerp(chargeTransform.localScale, Vector2.one + (Vector2.one * charge * 0.25f), Time.deltaTime * 20f);
+        chargeTransform.localPosition = Vector2.Lerp(chargeTransform.localPosition, new Vector2(0f, -charge * 0.75f - shootOffset), Time.deltaTime * 20f);
     }
 
-    void LateUpdate() {
-        if(!Input.GetKey(KeyCode.Mouse0) && isCharging) {
-            ShootArrow();
-            isCharging = false;
-            duration = 0f;
-        }
+    ProjectileHandler ReadyArrow() {
+        return Instantiate(projectile.prefab, bulletPosition.position, bulletPosition.rotation).GetComponent<ProjectileHandler>();
     }
 
     void ShootArrow() {
-        var _bullet = Instantiate(projectile.prefab, bulletPosition.position, bulletPosition.rotation).GetComponent<ProjectileHandler>();
-        _bullet.SetProjectile(projectile, duration);
+        loadedArrow.GetComponent<Transform>().SetParent(null);
+        loadedArrow.SetProjectile(projectile, charge);
+        loadedArrow = null;
     }
 }

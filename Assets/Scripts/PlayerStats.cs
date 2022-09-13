@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 //Handles leveling and player stats, scalable system.
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDamageable
 {
     //Core stats
     [Range(0f, 1f)] public float health;
@@ -53,6 +53,18 @@ public class PlayerStats : MonoBehaviour
         guiHandler.RefreshUIComponents();
     }
 
+    public void AbsorbDamage(int damage) {
+        if(shield - damage >= 0) {
+            shield -= damage;
+            guiHandler.OnDamaged(false, true);
+        } else {
+            var remainingDamage = damage - shield;
+            shield = 0f;
+            health -= remainingDamage;
+            guiHandler.OnDamaged(true, true);
+        }
+    }
+
     public void GainExperienceFlat(int xpGained) => experience += xpGained;
 
     void LevelUp() {
@@ -92,12 +104,12 @@ public class PlayerStats : MonoBehaviour
         if (Input.GetKeyDown(controls.debug_increaseHealth))
         {
             health += 50 * inverse;
-            guiHandler.OnDamaged(true);
+            guiHandler.OnDamaged(true, false);
         }
         if (Input.GetKeyDown(controls.debug_increaseStamina))
         {
             shield += 50 * inverse;
-            guiHandler.OnDamaged(false);
+            guiHandler.OnDamaged(false, true);
         }
         if (Input.GetKeyDown(controls.debug_increaseHealthMax))
         {

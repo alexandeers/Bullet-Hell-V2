@@ -7,7 +7,7 @@ public class CrystalBow : Item, IUseable
     [SerializeField] Transform bulletPosition;
     [SerializeField] Transform chargeTransform;
     BowState state = BowState.Ready;
-    float charge;
+    float charge, fullCharge;
     float shootOffset;
     ProjectileHandler loadedArrow;
     Material chargeMaterial => chargeTransform.GetComponent<SpriteRenderer>().material;
@@ -56,7 +56,10 @@ public class CrystalBow : Item, IUseable
             loadedArrow.GetComponent<SpriteRenderer>().color = Color.Lerp(loadedArrow.GetComponent<SpriteRenderer>().color, new Color(1f, 1f, 1f, 1f), Time.deltaTime * 5f);
 
         shootOffset = Mathf.Clamp01(shootOffset - Time.deltaTime);
+        fullCharge = Mathf.Clamp01((charge - 0.85f) * 5f);
+
         chargeMaterial.SetFloat("_Flash", charge);
+        chargeMaterial.SetFloat("_FullCharge", fullCharge);
 
         // Debug.Log($"Duration: {charge}. State: {state}");
         chargeTransform.localScale = Vector2.Lerp(chargeTransform.localScale, Vector2.one + (Vector2.one * charge * 0.25f), Time.deltaTime * 20f);

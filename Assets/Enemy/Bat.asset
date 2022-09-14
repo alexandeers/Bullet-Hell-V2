@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bat
   animatorController: {fileID: 9100000, guid: ec24e4ddfe3ded84495eefe4576cc9fe, type: 2}
-  health: 95
+  health: 90500
   damage: 36
   speed: 3
   enemyPrefab: {fileID: 0}

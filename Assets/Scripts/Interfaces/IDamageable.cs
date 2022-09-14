@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IDamageable
 {
 
-    public virtual void AbsorbDamage(int damage) {}
+    public void AbsorbDamage(int damage) {}
 
 }

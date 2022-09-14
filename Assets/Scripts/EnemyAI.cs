@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IDamageable
 {
     [SerializeField] Enemy enemyStats;
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sprite;
+    MaterialPropertyBlock propertyBlock;
 
     //"Variable" variables
     RuntimeAnimatorController animatorController;
     int health;
+    float flashAmount;
 
     //Flags
     bool isAttacking = false;
@@ -39,10 +41,19 @@ public class EnemyAI : MonoBehaviour
     {
         InitializeStats();
         GetReferences();
+        if (propertyBlock == null)
+            propertyBlock = new MaterialPropertyBlock();
+
     }
 
     void Update() {
         HandleMovementAndAnimation();
+
+        
+        flashAmount = Mathf.Lerp(flashAmount, 0f, Time.deltaTime * 10f);
+        sprite.GetPropertyBlock(propertyBlock);
+        propertyBlock.SetFloat("_Flash", flashAmount);
+        sprite.SetPropertyBlock(propertyBlock);
     }
 
     #region EnemyAI
@@ -55,6 +66,9 @@ public class EnemyAI : MonoBehaviour
 
     public void AbsorbDamage(int damage) {
         health -= damage;
+        flashAmount = 1f;
+
+        CameraShake.i.Shake(2.5f, 0.5f);
 
         if(health <= 0) {
             Destroy(gameObject);

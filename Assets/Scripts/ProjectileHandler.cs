@@ -12,12 +12,15 @@ public class ProjectileHandler : MonoBehaviour
     new CircleCollider2D collider;
     [SerializeField] LayerMask enemyLayer;
     float projectileSpeed;
+    TrailRenderer trailRenderer;
 
     bool projectileIsSet = false;
 
     private void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<CircleCollider2D>();
+        trailRenderer = transform.GetChild(0).GetComponent<TrailRenderer>();
+        trailRenderer.emitting = false;
     }
 
     void Update() {
@@ -42,6 +45,7 @@ public class ProjectileHandler : MonoBehaviour
 
     private void HandleDefaultBehaviour() {        
         rigidbody.velocity = transform.up * projectileSpeed;
+        trailRenderer.emitting = projectileIsSet;
     }
     private void HandleHomingBehaviour() {
         GetTarget();

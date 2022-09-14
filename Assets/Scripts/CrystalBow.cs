@@ -11,6 +11,7 @@ public class CrystalBow : Item, IUseable
     float shootOffset;
     ProjectileHandler loadedArrow;
     Material chargeMaterial => chargeTransform.GetComponent<SpriteRenderer>().material;
+    Color initialColor = new Color(1f, 1f, 1f, 0f);
 
     public void Use() {
         switch (state)
@@ -21,8 +22,8 @@ public class CrystalBow : Item, IUseable
                 if(!loadedArrow) {
                     loadedArrow = ReadyArrow();
                     loadedArrow.GetComponent<Transform>().SetParent(chargeTransform);
+                    loadedArrow.GetComponent<SpriteRenderer>().color = initialColor;
                 }
-
                 if(Input.GetKey(KeyCode.Mouse0)) {
                     state = BowState.Charging;
                 }
@@ -51,6 +52,9 @@ public class CrystalBow : Item, IUseable
 
 
     private void Update() {
+        if(loadedArrow)
+            loadedArrow.GetComponent<SpriteRenderer>().color = Color.Lerp(loadedArrow.GetComponent<SpriteRenderer>().color, new Color(1f, 1f, 1f, 1f), Time.deltaTime * 5f);
+
         shootOffset = Mathf.Clamp01(shootOffset - Time.deltaTime);
         chargeMaterial.SetFloat("_Flash", charge);
 

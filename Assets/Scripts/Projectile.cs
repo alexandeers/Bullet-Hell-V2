@@ -10,6 +10,7 @@ public class Projectile : ScriptableObject
     public new string name;
     public float speed;
     public int damage; 
+    public int knockback; 
     public Sprite sprite;
     public GameObject prefab;
 

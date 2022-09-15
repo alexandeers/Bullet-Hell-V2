@@ -9,6 +9,9 @@ public class CrystalBow : Item, IUseable
     BowState state = BowState.Ready;
     float charge, fullCharge;
     float shootOffset;
+    [SerializeField] float cooldownTime;
+    float cooldownDuration;
+
     ProjectileHandler loadedArrow;
     Material chargeMaterial => chargeTransform.GetComponent<SpriteRenderer>().material;
     Color initialColor = new Color(1f, 1f, 1f, 0f);
@@ -17,46 +20,67 @@ public class CrystalBow : Item, IUseable
         switch (state)
         {
             case BowState.Ready:
-                charge = 0f;
-
-                if(!loadedArrow) {
-                    loadedArrow = ReadyArrow();
-                    loadedArrow.GetComponent<Transform>().SetParent(chargeTransform);
-                    loadedArrow.GetComponent<SpriteRenderer>().color = initialColor;
-                }
-                if(Input.GetKey(KeyCode.Mouse0)) {
-                    state = BowState.Charging;
-                }
+                Ready();
                 break;
 
             case BowState.Charging:
-                if(Input.GetKey(KeyCode.Mouse0)) {
-                    charge = Mathf.Clamp01(charge + Time.deltaTime);
-                } else {
-                    ShootArrow();
-                    charge = 1f;
-                    shootOffset = 1f + charge * 0.5f;
-                    state = BowState.Cooldown;
-                    shootOffset = charge;
-                }
+                Charging();
                 break;
 
             case BowState.Cooldown:
-                charge -= Time.deltaTime * 2f;
-                if(charge <= 0) {
-                    state = BowState.Ready;
-                }
+                Cooldown();
                 break;
         }
     }
 
+    void Ready()
+    {
+        charge = 0f;
+
+        if (!loadedArrow)
+        {
+            loadedArrow = ReadyArrow();
+            loadedArrow.GetComponent<Transform>().SetParent(chargeTransform);
+            loadedArrow.GetComponent<SpriteRenderer>().color = initialColor;
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            state = BowState.Charging;
+        }
+    }
+
+    void Charging()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            charge = Mathf.Clamp01(charge + Time.deltaTime);
+        } else {
+            ShootArrow();
+            // charge = 1f;
+            shootOffset = 0.5f + charge;
+            cooldownDuration = cooldownTime;
+            state = BowState.Cooldown;
+        }
+    }
+
+    void Cooldown()
+    {
+        charge = Mathf.Clamp(charge - (Time.deltaTime * 2f), 0f, 5f);
+        cooldownDuration -= Time.deltaTime;
+
+        if (cooldownDuration <= 0)
+        {
+            state = BowState.Ready;
+        }
+    }
 
     private void Update() {
         if(loadedArrow)
-            loadedArrow.GetComponent<SpriteRenderer>().color = Color.Lerp(loadedArrow.GetComponent<SpriteRenderer>().color, new Color(1f, 1f, 1f, 1f), Time.deltaTime * 5f);
+            loadedArrow.GetComponent<SpriteRenderer>().color = Color.Lerp(loadedArrow.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * 5f);
 
         shootOffset = Mathf.Clamp01(shootOffset - Time.deltaTime);
-        fullCharge = Mathf.Clamp01((charge - 0.85f) * 5f);
+        fullCharge = Mathf.Clamp01((charge - 0.80f) * 5f);
 
         chargeMaterial.SetFloat("_Flash", charge);
         chargeMaterial.SetFloat("_FullCharge", fullCharge);

@@ -1,0 +1,2300 @@
+fileFormatVersion: 2
+guid: 5528ba84a4049ef42ba48fb83b09453e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: XPCounter with Levelse_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd4cec159df9cb4298c21ead608c2f1
+      internalID: -865762517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06e1e00224842646bac3dd51baf8b4f
+      internalID: -728661950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d695ee7895f63c94fa25c20cf4a40df8
+      internalID: 1529335164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c2ada218322534b80a800fb14ccc12
+      internalID: -638319151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b147ad300f2214c8750cb88549f88e
+      internalID: -975996395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_5
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e22c0420444094cbaef9bd60b69319
+      internalID: 1759599538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_6
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5313d52bae31b1c48b6c9091dbdc6854
+      internalID: 1908567238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_7
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199b84b32c4632f41b0bda55915debbc
+      internalID: 1458884899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f59a0fad670a24dbcb1db8f8586355
+      internalID: -679337028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_9
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 99
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02806107849ecc84baf70603c1578315
+      internalID: 1795331227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a9b6955d5699a44b541e5941f53531
+      internalID: 1295838912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_11
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0693a5e5414c343ab3621bc26af6b8
+      internalID: -254584555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdec8f97d4ce4de4aa0dd51c945d0c9e
+      internalID: -987736878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_13
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e0c2b56b5936f46ba2d81c84e4744c
+      internalID: 265275282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_14
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94cb61d31998d342a3a8110cf95a292
+      internalID: 1695049532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_15
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf14956be2634c4692b963260a7f17c
+      internalID: 2139429817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_16
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442a957684ec22c49ba15d4d8ae68ba1
+      internalID: -1152972263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_17
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e329f9bdd1587c48aa3448ce244f4df
+      internalID: 933898571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_18
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed64850c98a59f4480963c003b7d467
+      internalID: -2068060241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_19
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c6e60cdf084ee438e1d724ae71e3b7
+      internalID: -977286354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97f6024ba338fb44af33eef5dfd3200
+      internalID: 158646758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_21
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9170e8ccffea9514996c1a913317deea
+      internalID: -1585010980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_22
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940859ee43b31744087379de968a9b8a
+      internalID: 1704611904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_23
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff8245e32007a364f9ad492b279202a7
+      internalID: -2098897336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_24
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ccb2649c756404ab74abf612b1f12b
+      internalID: -13220109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_25
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf389e0c319b5142aa784e035786adc
+      internalID: -714807029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_26
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a8b983ee57ad9489917a3b8f633128
+      internalID: 921829837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_27
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154d946a9bc5adf40a8b8429cd360824
+      internalID: 1292433464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_28
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e1dbf539feee544a8f41a19c85f188
+      internalID: -1296322860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_29
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 77
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ea8dbce0391d54096b0f3325a30f51
+      internalID: -1828391622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69abbb5292dd215489063a29b39acca1
+      internalID: -1705429108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_31
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a04df82ea8045e4ba743bfbc86d509b
+      internalID: 1024375907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_32
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819d497724be3874c837eeb38e42285a
+      internalID: 732655438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_33
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3784ad4d5e3281a44a8c11547d3446ff
+      internalID: -1037629183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_34
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e87759034be100742aee2a4cb0a1b319
+      internalID: -381039405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_35
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94baae8e4c699384b9de18c5aa36f148
+      internalID: -1197350076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_36
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad025178e4095d4382953876e6f0577
+      internalID: -1279239771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_37
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fb4559dfe638c4081c3ee696052363
+      internalID: 47156231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_38
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b17f95276176e4988c5ddfc1ea6eb8
+      internalID: 1089123182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_39
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0387a424e933d2499d6e5006247fab5
+      internalID: 1694385963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327e3644f7b968942b357a124694ae4b
+      internalID: 991287814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_41
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8efde0b4c844c43b0edbd5e91f165d
+      internalID: -37472785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_42
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9ace488de5d014c9be0057688b8654
+      internalID: 1121485374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_43
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf75289ab84f9da40b5b8b211bcfeff0
+      internalID: 1461106485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_44
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c4c8e792afd0d4eb175e9d367f60f6
+      internalID: 715583746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_45
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfaeb91653fb3f46be3824d39e193d2
+      internalID: 912433562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_46
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03231ea18b1e554dba1b0f10ce84841
+      internalID: -415416942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_47
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0c3fb8782a8d347b676a3682caac39
+      internalID: -677098832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_48
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec823bb116d7fc4585a25214b30beb1
+      internalID: -1009791448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_49
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 55
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f988a7ec8d1c2042a9e1e8d9c2eed31
+      internalID: -1427551742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff87af6e76363af448e3eaaefb8537bd
+      internalID: -14030017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_51
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f232802adf9f6d4abb26819f2f97bba
+      internalID: 195743448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_52
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77df98d56683d30429d4e6f77ca8221a
+      internalID: -211954664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_53
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b435f86db77524499d2e7fbeef0b4c
+      internalID: -1133684225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_54
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967f446dc8ef17a4488373d0d8076f2c
+      internalID: 1527651712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_55
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a4c501ac0cd8e4a83b63f29a81969a
+      internalID: -315672713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_56
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f06e54872b8f9408a1fdf724a1e93b
+      internalID: -542827475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_57
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51634b31db965a241bb3548a24396637
+      internalID: 1042214379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_58
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1e11b94a197ac4588000f281338fd8
+      internalID: 526844074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_59
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 44
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dccc44e0044fc44eac985a9108f2f74
+      internalID: 501938835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30033e7785cf76049a0d5e1ad6f00c11
+      internalID: 1648957055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_61
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d432446f63898d488514fd7b0b7441c
+      internalID: -2102910243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_62
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241d070fbf78de04ea78a8c923188d5f
+      internalID: -1471338603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_63
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90499bfcddbb22445816ad9c0a1ff6ba
+      internalID: 827758089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_64
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24884832898e87429009c396c6cd42f
+      internalID: -1081798302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_65
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027dcb07d6179f04c8c4f30ec21d3001
+      internalID: 616189837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_66
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa2d4c84765f5345b04803a37b1ffc6
+      internalID: -780070756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_67
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cf84e0ec785ff4cad31f5a64caadb7
+      internalID: 197003045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_68
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61a7bda4579df7489deb980fbe48a76
+      internalID: 2046675656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_69
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 33
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb754e68873cc7c4f8e0e46b1e5e93a1
+      internalID: -662794098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cacfebcca56007048a83d74faac177b2
+      internalID: 348027364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_71
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa7d04c2465ca64cb4f7f1af7c31b7d
+      internalID: 588356032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_72
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b738ccd1afd1d4b47bb8779b5a163046
+      internalID: -446995557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_73
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb345a877dd3a045bd3006b653306d3
+      internalID: -1345057250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_74
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ab1fbf02f2e0d44979edffbeadf435
+      internalID: 1794462020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_75
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc8f17d6de110541a7bd478d4037a5f
+      internalID: -2041623725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_76
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c085fa947b1eaa4e90d12b3e8300613
+      internalID: -1209231699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_77
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab8343535cba9844ad6fb379bd4cd64
+      internalID: -1323030759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_78
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa94fbbbd78efa94ba84e84bf5441d93
+      internalID: 1762643783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_79
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 22
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6162e00e76b6c4581c939e77216ae0
+      internalID: -1576405852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc346d0f06e06e34daa91787dbfb51f3
+      internalID: -1905818209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_81
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243b43631e9b317418de40a1390afe8b
+      internalID: 399342581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_82
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e2450e779391142a3f4a65b43d753d
+      internalID: 1010019646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_83
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32100633ddda1a4081db928e2e0748f
+      internalID: 86129817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_84
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0d4ef15252f354497b743c13f0fb85
+      internalID: -1834104680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_85
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d9afbecd6b156479e4a7a3d0b540a5
+      internalID: -808580069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_86
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be5532775224c3468c1564c9daed5ed
+      internalID: 1888033024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_87
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f2d829a3cf6e44784d58061f491ee2
+      internalID: 1424525965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_88
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cedb46d823917804e9550378bda50e57
+      internalID: 1737660435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_89
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 11
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572a93b3af99571438aa66e733a824b1
+      internalID: -1688629329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e26742b4aef284abf6b0fc57b1c082
+      internalID: -922973629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_91
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8606eb3f2953c044832d689f0086d1b
+      internalID: 1213858296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_92
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e387aef86fefc3d40b8caa3bcb1396d3
+      internalID: -687400932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_93
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad19a18f02ec8042bb2b9d05936b95c
+      internalID: -2046879418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_94
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e789bd654c6a844bcc0c5ba14892da
+      internalID: -124823694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_95
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc499a428594e8d40a7e5699c62eeb19
+      internalID: 1855136739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_96
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0679896db327a34e8945acb946de96d
+      internalID: -954456508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_97
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1833ddb2fad91d04cb57fe1d4a0765e9
+      internalID: -644931734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XPCounter with Levelse_98
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1360555b93323e04d8a66415390c0b7c
+      internalID: 1632324150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      XPCounter with Levelse_27: 1292433464
+      XPCounter with Levelse_63: 827758089
+      XPCounter with Levelse_35: -1197350076
+      XPCounter with Levelse_96: -954456508
+      XPCounter with Levelse_23: -2098897336
+      XPCounter with Levelse_25: -714807029
+      XPCounter with Levelse_95: 1855136739
+      XPCounter with Levelse_1: -728661950
+      XPCounter with Levelse_49: -1427551742
+      XPCounter with Levelse_79: -1576405852
+      XPCounter with Levelse_42: 1121485374
+      XPCounter with Levelse_18: -2068060241
+      XPCounter with Levelse_0: -865762517
+      XPCounter with Levelse_13: 265275282
+      XPCounter with Levelse_93: -2046879418
+      XPCounter with Levelse_59: 501938835
+      XPCounter with Levelse_10: 1295838912
+      XPCounter with Levelse_53: -1133684225
+      XPCounter with Levelse_30: -1705429108
+      XPCounter with Levelse_57: 1042214379
+      XPCounter with Levelse_74: 1794462020
+      XPCounter with Levelse_87: 1424525965
+      XPCounter with Levelse_40: 991287814
+      XPCounter with Levelse_86: 1888033024
+      XPCounter with Levelse_55: -315672713
+      XPCounter with Levelse_32: 732655438
+      XPCounter with Levelse_75: -2041623725
+      XPCounter with Levelse_77: -1323030759
+      XPCounter with Levelse_9: 1795331227
+      XPCounter with Levelse_22: 1704611904
+      XPCounter with Levelse_37: 47156231
+      XPCounter with Levelse_62: -1471338603
+      XPCounter with Levelse_51: 195743448
+      XPCounter with Levelse_45: 912433562
+      XPCounter with Levelse_46: -415416942
+      XPCounter with Levelse_5: 1759599538
+      XPCounter with Levelse_73: -1345057250
+      XPCounter with Levelse_88: 1737660435
+      XPCounter with Levelse_20: 158646758
+      XPCounter with Levelse_39: 1694385963
+      XPCounter with Levelse_81: 399342581
+      XPCounter with Levelse_17: 933898571
+      XPCounter with Levelse_66: -780070756
+      XPCounter with Levelse_56: -542827475
+      XPCounter with Levelse_70: 348027364
+      XPCounter with Levelse_72: -446995557
+      XPCounter with Levelse_15: 2139429817
+      XPCounter with Levelse_38: 1089123182
+      XPCounter with Levelse_60: 1648957055
+      XPCounter with Levelse_47: -677098832
+      XPCounter with Levelse_82: 1010019646
+      XPCounter with Levelse_16: -1152972263
+      XPCounter with Levelse_31: 1024375907
+      XPCounter with Levelse_67: 197003045
+      XPCounter with Levelse_68: 2046675656
+      XPCounter with Levelse_36: -1279239771
+      XPCounter with Levelse_50: -14030017
+      XPCounter with Levelse_14: 1695049532
+      XPCounter with Levelse_4: -975996395
+      XPCounter with Levelse_64: -1081798302
+      XPCounter with Levelse_89: -1688629329
+      XPCounter with Levelse_65: 616189837
+      XPCounter with Levelse_3: -638319151
+      XPCounter with Levelse_21: -1585010980
+      XPCounter with Levelse_54: 1527651712
+      XPCounter with Levelse_8: -679337028
+      XPCounter with Levelse_90: -922973629
+      XPCounter with Levelse_78: 1762643783
+      XPCounter with Levelse_33: -1037629183
+      XPCounter with Levelse_94: -124823694
+      XPCounter with Levelse_2: 1529335164
+      XPCounter with Levelse_58: 526844074
+      XPCounter with Levelse_80: -1905818209
+      XPCounter with Levelse_52: -211954664
+      XPCounter with Levelse_84: -1834104680
+      XPCounter with Levelse_98: 1632324150
+      XPCounter with Levelse_92: -687400932
+      XPCounter with Levelse_61: -2102910243
+      XPCounter with Levelse_69: -662794098
+      XPCounter with Levelse_71: 588356032
+      XPCounter with Levelse_83: 86129817
+      XPCounter with Levelse_26: 921829837
+      XPCounter with Levelse_91: 1213858296
+      XPCounter with Levelse_28: -1296322860
+      XPCounter with Levelse_48: -1009791448
+      XPCounter with Levelse_76: -1209231699
+      XPCounter with Levelse_34: -381039405
+      XPCounter with Levelse_44: 715583746
+      XPCounter with Levelse_43: 1461106485
+      XPCounter with Levelse_6: 1908567238
+      XPCounter with Levelse_85: -808580069
+      XPCounter with Levelse_7: 1458884899
+      XPCounter with Levelse_11: -254584555
+      XPCounter with Levelse_24: -13220109
+      XPCounter with Levelse_12: -987736878
+      XPCounter with Levelse_97: -644931734
+      XPCounter with Levelse_29: -1828391622
+      XPCounter with Levelse_41: -37472785
+      XPCounter with Levelse_19: -977286354
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

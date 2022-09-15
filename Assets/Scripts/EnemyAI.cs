@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour, IDamageable
+public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Enemy enemyStats;
+    [SerializeField] EnemyStats enemyStats;
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sprite;
@@ -60,7 +60,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     public void DealDamage() 
     {
-        PlayerHandler.instance.GetComponent<IDamageable>().AbsorbDamage(enemyStats.damage);
+        PlayerHandler.i.GetComponent<IDamageable>().AbsorbDamage(enemyStats.damage, 0f);
         isAttacking = false;
     }
 
@@ -78,7 +78,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     void HandleMovementAndAnimation()
     {
-        Vector2 playerPos = PlayerHandler.instance.transform.position;
+        Vector2 playerPos = PlayerHandler.i.transform.position;
         sprite.flipX = playerPos.x < transform.position.x;
 
         //Check if player is in range for an attack

@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IDamageable
 {
 
-    public void AbsorbDamage(int damage) {}
+    public bool AbsorbDamage(int damage, float knockback);
 
 }

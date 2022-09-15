@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
-    public static PlayerHandler instance;
+    public static PlayerHandler i;
     PlayerMovement playerMovement;
-    PlayerStats playerStats;
+    public PlayerStats playerStats;
     GUIHandler guiHandler;
 
     void Start() {
@@ -14,8 +15,8 @@ public class PlayerHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         guiHandler = GetComponent<GUIHandler>();
 
-        if(instance == null) {
-            instance = this;
+        if(i == null) {
+            i = this;
         } else {
             Debug.Log("PlayerHandler already exists.");
         }
@@ -24,4 +25,7 @@ public class PlayerHandler : MonoBehaviour
     void FixedUpdate() {
         playerMovement.UpdateMovement();
     }
+
+    public Vector2 GetPlayerPosition() => transform.position;
+
 }

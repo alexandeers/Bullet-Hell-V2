@@ -29,6 +29,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
         GetReferences();
         guiHandler.RefreshUIComponents();
         LevelUp();
+
+        shield = 0;
     }
 
     void OnValidate() {
@@ -53,7 +55,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         guiHandler.RefreshUIComponents();
     }
 
-    public void AbsorbDamage(int damage) {
+    public bool AbsorbDamage(int damage, float knockback) {
         if(shield - damage >= 0) {
             shield -= damage;
             guiHandler.OnDamaged(false, true);
@@ -63,6 +65,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
             health -= remainingDamage;
             guiHandler.OnDamaged(true, true);
         }
+
+        return true;
     }
 
     public void GainExperienceFlat(int xpGained) => experience += xpGained;
@@ -88,13 +92,19 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     void IncreaseHealth() {
         // maxHealth.AddModifier( new StatModifier((int)(((float)maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 5f), StatModType.Flat, this) );
+        float fraction = health / maxHealth.Value;
         maxHealth.BaseValue += (int)(maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 5f;
-        health = maxHealth.Value;
+        health = maxHealth.Value * fraction;
     }
 
     void IncreaseMana() {
         // maxShield += (int)(((float)maxShield * 0.01f) * ((100 - level) * 0.065f));
-        shield = maxShield;
+        float fraction = shield / maxShield;
+        shield = maxShield * fraction;
+    }
+
+    public void RegenerateShieldOnDamage(float amount) {
+        shield += amount * 0.1f;
     }
 
     private void DebugControls()

@@ -95,6 +95,7 @@ public class ProjectileHandler : MonoBehaviour
             
             pierceCounter++;
             PlayerHandler.i.playerStats.RegenerateShieldOnDamage(damage);
+            CameraShake.i.Shake(1f + 2.5f * charge, 0.4f + charge/3f);
         } else {
             IncreaseParticleSize();
             projectileIsSet = false;

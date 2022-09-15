@@ -57,8 +57,6 @@ public class Enemy : MonoBehaviour, IDamageable
         healthBar.fillAmount = health / maxHealth;
 
         // flashAmount = 1f;
-
-        CameraShake.i.Shake(2.5f, 0.5f);
         Knockback(knockback);
         indicatorTimer = 0.5f;
 

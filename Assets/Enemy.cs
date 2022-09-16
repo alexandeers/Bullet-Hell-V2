@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    [Header("Stats")]
-    [SerializeField] float maxHealth;
-    [SerializeField] float moveSpeed, angleSpeed;
+    // [Header("Stats")]
+    public float maxHealth, moveSpeed, angleSpeed;
+    public int damage;
 
     [Header("References")]
-    [SerializeField] Image healthBar;
-    [SerializeField] Image indicator;
-    float indicatorTimer;
+    public Image healthBar;
+    public Image indicator;
+    public float indicatorTimer;
 
-    ParticleSystem deathParticles;
-    SpriteRenderer sprite;
-    Rigidbody2D rb;
-    Canvas canvas;
+    [HideInInspector] public ParticleSystem deathParticles;
+    [HideInInspector] public SpriteRenderer sprite;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public Canvas canvas;
 
-    float health;
-    bool isDead;
+    [HideInInspector] public float health;
+    [HideInInspector] public bool isDead;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     void Update() {
-        HandleMovement();
+        HandleBehaviour();
         HandleDeath();
     }
 
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     //////////////////  CALLBACKS   //////////////////
 
-    void HandleMovement()
+    public virtual void HandleBehaviour()
     {
         if(isDead) return;
 
@@ -68,20 +68,20 @@ public class Enemy : MonoBehaviour, IDamageable
         return false;    
     }
 
-    void Knockback(float intensity) {
+    public void Knockback(float intensity) {
         Vector2 direction = rb.position - PlayerHandler.i.GetPlayerPosition();
         direction.Normalize();
         rb.AddForce(direction * intensity, ForceMode2D.Impulse);
     }
 
-    IEnumerator InitiateDeath() {
+    public IEnumerator InitiateDeath() {
         isDead = true;
         deathParticles.Play();
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
 
-    void HandleDeath()
+    public void HandleDeath()
     {
         if(!isDead) return;
         // sprite.color = Color.Lerp(sprite.color, new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0f), Time.deltaTime * 2f);
@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour, IDamageable
         canvas.GetComponent<CanvasGroup>().alpha = 0f;
     }
 
-    void RefreshUI()
+    public void RefreshUI()
     {
         canvas.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         var radians = rb.rotation * Mathf.Deg2Rad;

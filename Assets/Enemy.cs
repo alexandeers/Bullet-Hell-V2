@@ -5,22 +5,27 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    // [Header("Stats")]
-    public float maxHealth, moveSpeed, angleSpeed;
-    public int damage;
+    [Header("Stats")]
+    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float angleSpeed;
+    [SerializeField] protected float knockback;
+    [SerializeField] protected int damage;
+    protected float health;
 
     [Header("References")]
-    public Image healthBar;
-    public Image indicator;
-    public float indicatorTimer;
+    [SerializeField] protected Image healthBar;
+    [SerializeField] protected Image indicator;
+    [SerializeField] protected float healthbarHeight;
+    protected float indicatorTimer;
 
-    [HideInInspector] public ParticleSystem deathParticles;
-    [HideInInspector] public SpriteRenderer sprite;
-    [HideInInspector] public Rigidbody2D rb;
-    [HideInInspector] public Canvas canvas;
+    protected ParticleSystem deathParticles;
+    protected SpriteRenderer sprite;
+    protected Rigidbody2D rb;
+    protected Canvas canvas;
 
-    [HideInInspector] public float health;
-    [HideInInspector] public bool isDead;
+    
+    protected bool isDead;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -52,12 +57,12 @@ public class Enemy : MonoBehaviour, IDamageable
         rb.velocity += (Vector2)transform.up * moveSpeed * Time.deltaTime;
     }
 
-    bool IDamageable.AbsorbDamage(int damage, float knockback) {
+    bool IDamageable.AbsorbDamage(int damage, float knockback, Vector2 source) {
         health -= damage;
         healthBar.fillAmount = health / maxHealth;
 
         // flashAmount = 1f;
-        Knockback(knockback);
+        Knockback(knockback, source);
         indicatorTimer = 0.5f;
 
         if(health <= 0) {
@@ -68,11 +73,7 @@ public class Enemy : MonoBehaviour, IDamageable
         return false;    
     }
 
-    public void Knockback(float intensity) {
-        Vector2 direction = rb.position - PlayerHandler.i.GetPlayerPosition();
-        direction.Normalize();
-        rb.AddForce(direction * intensity, ForceMode2D.Impulse);
-    }
+    public void Knockback(float intensity, Vector2 source) => rb.AddForce(source * intensity, ForceMode2D.Impulse);
 
     public IEnumerator InitiateDeath() {
         isDead = true;
@@ -93,7 +94,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         canvas.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         var radians = rb.rotation * Mathf.Deg2Rad;
-        canvas.transform.localPosition = new Vector2((float)Mathf.Sin(radians), (float)Mathf.Cos(radians));
+        canvas.transform.localPosition = new Vector2((float)Mathf.Sin(radians) * healthbarHeight, (float)Mathf.Cos(radians) * healthbarHeight);
 
         if(indicatorTimer <= 0)
             indicator.fillAmount = Mathf.Lerp(indicator.fillAmount, healthBar.fillAmount, Time.deltaTime * 8f);

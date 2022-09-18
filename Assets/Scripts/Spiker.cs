@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Spiker : Enemy, IDamageable
 {
+    [Header("Spiker Stats")]
     [SerializeField] float attackRange;
     [SerializeField] float dashIntensity;
     [SerializeField] float dashChance;
@@ -12,6 +13,7 @@ public class Spiker : Enemy, IDamageable
     float cooldown;
     SpikerState state = SpikerState.Chase;
     [SerializeField] LayerMask targetLayer;
+    private float hitTimer;
 
     enum SpikerState {
         Chase,
@@ -29,7 +31,6 @@ public class Spiker : Enemy, IDamageable
                 Dash();
                 break;
         }
-
     }
 
     void Chase()
@@ -39,6 +40,9 @@ public class Spiker : Enemy, IDamageable
         if(cooldown > 0)
             cooldown -= Time.deltaTime;
 
+        if(hitTimer > 0)
+            hitTimer -= Time.deltaTime;
+
         Vector2 playerPos = PlayerHandler.i.GetPlayerPosition();
         Vector2 direction = Vector2.zero;
         float rotateAmount = 0f;
@@ -46,7 +50,7 @@ public class Spiker : Enemy, IDamageable
         direction.Normalize();
 
         if(Vector2.Distance(transform.position, playerPos) < attackRange ) {
-            rotateAmount = Vector2.Dot(direction, transform.up);
+            rotateAmount = Vector2.Dot(-direction, transform.up);
 
             if(UnityEngine.Random.Range(0f, dashChance) <= 1f && cooldown <= 0) {
                 state = SpikerState.Dash;
@@ -61,6 +65,7 @@ public class Spiker : Enemy, IDamageable
 
     void Dash()
     {
+        rb.velocity = Vector2.zero;
         cooldown = cooldownDuration;
         Vector2 playerPos = PlayerHandler.i.GetPlayerPosition();
         Vector2 direction = playerPos - rb.position;
@@ -70,10 +75,13 @@ public class Spiker : Enemy, IDamageable
         state = SpikerState.Chase;
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        // if(((1<<other.gameObject.layer) & targetLayer) != 0) {
-        other.GetComponent<IDamageable>().AbsorbDamage(damage, 0f);
-        Debug.Log("TRÄFFA");
-        // }
+    void OnCollisionEnter2D(Collision2D other) {
+        if(hitTimer > 0) return;
+
+        if(((1<<other.gameObject.layer) & targetLayer) != 0) {
+            other.collider.GetComponent<IDamageable>().AbsorbDamage(damage, knockback, rb.velocity.normalized);
+            Debug.Log("TRÄFFA");
+            hitTimer = 0.8f;
+        }
     }
 }

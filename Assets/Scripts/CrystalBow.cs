@@ -1,13 +1,14 @@
 using UnityEngine;
 
-public class CrystalBow : Item, IUseable
+public class CrystalBow : MonoBehaviour, IUseable
 {
 
     [SerializeField] Projectile projectile;
     [SerializeField] Transform bulletPosition;
     [SerializeField] Transform chargeTransform;
     BowState state = BowState.Ready;
-    float charge, fullCharge;
+    protected float charge { get; private set; }
+    protected float fullCharge { get; private set; }
     float shootOffset;
     [SerializeField] float cooldownTime;
     float cooldownDuration;
@@ -54,7 +55,7 @@ public class CrystalBow : Item, IUseable
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            charge = Mathf.Clamp01(charge + Time.deltaTime);
+            charge = Mathf.Clamp01(charge + Time.deltaTime + (PlayerHandler.i.playerStats.chargeRate.Value * Time.deltaTime / 100f));
         } else {
             ShootArrow();
             // charge = 1f;
@@ -96,7 +97,7 @@ public class CrystalBow : Item, IUseable
 
     void ShootArrow() {
         loadedArrow.GetComponent<Transform>().SetParent(null);
-        loadedArrow.SetProjectile(projectile, charge);
+        loadedArrow.SetProjectile(projectile, charge, PlayerHandler.i.playerStats.damage.Value);
         loadedArrow = null;
     }
 }

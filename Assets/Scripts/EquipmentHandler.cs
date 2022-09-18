@@ -20,9 +20,7 @@ public class EquipmentHandler : MonoBehaviour
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         equipPivot.rotation = Quaternion.Lerp(equipPivot.rotation, rotation, Time.deltaTime * rotationSpeed);
-
         
         useable.GetComponent<IUseable>().Use();
-
     }
 }

@@ -1,34 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CursorHandler : MonoBehaviour
 {
-    RectTransform cursorVisual;
+    RectTransform reticleVisual;
     Canvas canvas;
 
     void Start() {
-        cursorVisual = transform.GetChild(0).GetComponent<RectTransform>();
+        reticleVisual = transform.GetChild(0).GetComponent<RectTransform>();
         canvas = GetComponent<Canvas>();
 
-        Cursor.visible = false;
+        PlayerHandler.i.toggleInventory += ToggleReticle;
+    }
+
+    void ToggleReticle(bool isEnabled)
+    {
+        if(isEnabled)
+            reticleVisual.gameObject.SetActive(false);
+        else
+            reticleVisual.gameObject.SetActive(true);
     }
 
     void Update() {
-        Vector2 rotationPivot = (Vector2)Camera.main.WorldToScreenPoint(PlayerHandler.i.GetPlayerPosition());
-        Vector2 direction = (Vector2)Input.mousePosition - rotationPivot;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        var inventoryOpen = PlayerHandler.i.inventoryOpen;
+        Cursor.visible = inventoryOpen;
 
-        Vector2 movePos;
+        if(!inventoryOpen) {
+            Vector2 rotationPivot = (Vector2)Camera.main.WorldToScreenPoint(PlayerHandler.i.GetPlayerPosition());
+            Vector2 direction = (Vector2)Input.mousePosition - rotationPivot;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvas.transform as RectTransform,
-            Input.mousePosition, canvas.worldCamera,
-            out movePos);
+            Vector2 movePos;
 
-        cursorVisual.position = canvas.transform.TransformPoint(movePos);
-        cursorVisual.rotation = rotation;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                Input.mousePosition, canvas.worldCamera,
+                out movePos);
+
+            reticleVisual.position = canvas.transform.TransformPoint(movePos);
+            reticleVisual.rotation = rotation;
+        }
     }
-
 }

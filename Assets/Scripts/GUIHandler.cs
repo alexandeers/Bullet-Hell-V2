@@ -39,10 +39,10 @@ public class GUIHandler : MonoBehaviour
         // var hpBarSizeSolver = 800f*(1-Mathf.Exp(-0.001f*playerStats.maxHealth.Value)) + 120f;
         // var manaBarSizeSolver = Mathf.Log10(playerStats.maxMana/3) * (0.2f * playerStats.maxMana) + 70f;
         var hpBarSizeSolver = (playerStats.health * 0.5f);
-        var manaBarSizeSolver = (playerStats.maxShield * 0.2f) + 50f;
+        var manaBarSizeSolver = (playerStats.maxShield.Value * 0.2f) + 50f;
         var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 0.5f);
         var healthNormalized = playerStats.health / playerStats.maxHealth.Value;
-        var manaNormalized = playerStats.shield / playerStats.maxShield;
+        var manaNormalized = playerStats.shield / playerStats.maxShield.Value;
 
         if(playerStats.isShieldEnabled) {
             manaBackground.gameObject.SetActive(true);

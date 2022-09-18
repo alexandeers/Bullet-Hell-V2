@@ -8,9 +8,9 @@ public enum StatModType {
     PercentMult = 300
 }
 
+[System.Serializable]
 public class StatModifier
 {
-
     public readonly float Value;
     public readonly int Order;
     public readonly StatModType Type;

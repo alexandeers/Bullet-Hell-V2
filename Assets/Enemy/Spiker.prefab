@@ -4865,7 +4865,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8e63bd074494fcc4b9b016c9f443bac9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4949,7 +4949,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8e63bd074494fcc4b9b016c9f443bac9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5227,6 +5227,9 @@ MonoBehaviour:
   healthBar: {fileID: 5526726385044021237}
   indicator: {fileID: 5526726385594198830}
   healthbarHeight: 1.5
+  sprites:
+  - {fileID: 4504301668326274418}
+  - {fileID: 4832428686527894560}
   attackRange: 14
   dashIntensity: 120
   dashChance: 80

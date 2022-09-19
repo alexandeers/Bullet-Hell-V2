@@ -19,26 +19,40 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] protected float healthbarHeight;
     protected float indicatorTimer;
 
+    protected MaterialPropertyBlock propertyBlock;
     protected ParticleSystem deathParticles;
-    protected SpriteRenderer sprite;
+    [SerializeField] protected SpriteRenderer[] sprites;
     protected Rigidbody2D rb;
     protected Canvas canvas;
 
     
     protected bool isDead;
+    private float flashAmount;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
         canvas = transform.GetChild(0).GetComponent<Canvas>();
         deathParticles = transform.GetChild(1).GetComponent<ParticleSystem>();
     
         health = maxHealth;
+        if (propertyBlock == null)
+            propertyBlock = new MaterialPropertyBlock();
     }
 
     void Update() {
         HandleBehaviour();
         HandleDeath();
+
+        if(flashAmount >= 0f) {
+            flashAmount -= Time.deltaTime * 10f;
+            foreach(SpriteRenderer sprite in sprites) {
+                sprite.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetFloat("_Flash", flashAmount);
+                sprite.SetPropertyBlock(propertyBlock);
+            }
+        } else {
+
+        }
     }
 
     void LateUpdate() => RefreshUI();
@@ -61,7 +75,7 @@ public class Enemy : MonoBehaviour, IDamageable
         health -= damage;
         healthBar.fillAmount = health / maxHealth;
 
-        // flashAmount = 1f;
+        flashAmount = 1f;
         Knockback(knockback, source);
         indicatorTimer = 0.5f;
 

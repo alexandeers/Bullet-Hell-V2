@@ -50,9 +50,7 @@ public class Enemy : MonoBehaviour, IDamageable
                 propertyBlock.SetFloat("_Flash", flashAmount);
                 sprite.SetPropertyBlock(propertyBlock);
             }
-        } else {
-
-        }
+        } 
     }
 
     void LateUpdate() => RefreshUI();

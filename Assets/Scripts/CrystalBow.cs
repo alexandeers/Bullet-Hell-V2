@@ -3,7 +3,7 @@ using UnityEngine;
 public class CrystalBow : MonoBehaviour, IUseable
 {
 
-    [SerializeField] Projectile projectile;
+    [SerializeField] GameObject projectile;
     [SerializeField] Transform bulletPosition;
     [SerializeField] Transform chargeTransform;
     BowState state = BowState.Ready;
@@ -13,7 +13,7 @@ public class CrystalBow : MonoBehaviour, IUseable
     [SerializeField] float cooldownTime;
     float cooldownDuration;
 
-    ProjectileHandler loadedArrow;
+    Projectile loadedArrow;
     Material chargeMaterial => chargeTransform.GetComponent<SpriteRenderer>().material;
     Color initialColor = new Color(1f, 1f, 1f, 0f);
 
@@ -91,13 +91,13 @@ public class CrystalBow : MonoBehaviour, IUseable
         chargeTransform.localPosition = Vector2.Lerp(chargeTransform.localPosition, new Vector2(0f, -charge * 0.75f - shootOffset), Time.deltaTime * 20f);
     }
 
-    ProjectileHandler ReadyArrow() {
-        return Instantiate(projectile.prefab, bulletPosition.position, bulletPosition.rotation).GetComponent<ProjectileHandler>();
+    Projectile ReadyArrow() {
+        return Instantiate(projectile, bulletPosition.position, bulletPosition.rotation).GetComponent<Projectile>();
     }
 
     void ShootArrow() {
         loadedArrow.GetComponent<Transform>().SetParent(null);
-        loadedArrow.SetProjectile(projectile, charge, PlayerHandler.i.playerStats.damage.Value);
+        loadedArrow.SetProjectile(charge, PlayerHandler.i.playerStats.damage.Value);
         loadedArrow = null;
     }
 }

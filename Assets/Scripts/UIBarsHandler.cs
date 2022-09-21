@@ -20,6 +20,7 @@ public class UIBarsHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI xpText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] Transform damagedBarTemplate;
+    Image xpBarImage;
 
     PlayerStats playerStats;
     PlayerHandler playerHandler;
@@ -32,9 +33,11 @@ public class UIBarsHandler : MonoBehaviour
         OnGUIUpdate += RefreshUIComponents;
     }
 
-    public void RefreshUIComponents() {
+    void OnValidate() {
         GetReferences();
+    }
 
+    public void RefreshUIComponents() {
         // var hpBarSizeSolver = Mathf.Log10(playerStats.maxHealth.Value/3) * (0.2f * playerStats.maxHealth.Value) + 90f;
         // var hpBarSizeSolver = 800f*(1-Mathf.Exp(-0.001f*playerStats.maxHealth.Value)) + 120f;
         // var manaBarSizeSolver = Mathf.Log10(playerStats.maxMana/3) * (0.2f * playerStats.maxMana) + 70f;
@@ -62,6 +65,11 @@ public class UIBarsHandler : MonoBehaviour
         // container.anchoredPosition = new Vector2(-container.GetComponent<HorizontalLayoutGroup>().minWidth / 2f, container.anchoredPosition.y);
 
         xpBackground.sizeDelta = new Vector2(-container.anchoredPosition.x*2, xpBackground.sizeDelta.y);
+        xpBar.sizeDelta = xpBackground.sizeDelta;
+
+        if(playerStats.experienceNeededToLevel != 0) {
+            xpBarImage.fillAmount = Mathf.Lerp(xpBarImage.fillAmount, (float)playerStats.experience / (float)playerStats.experienceNeededToLevel, Time.deltaTime * 15f);
+        }
 
         topRowBackground.sizeDelta = new Vector2(-container.anchoredPosition.x*2, topRowBackground.sizeDelta.y);
 
@@ -99,11 +107,11 @@ public class UIBarsHandler : MonoBehaviour
         }
     }
 
-    public float GetExperienceFillAmount() => xpBar.sizeDelta.x / xpBackground.sizeDelta.y;
-
     private void GetReferences()
     {
         playerStats = GetComponent<PlayerStats>();
         playerHandler = GetComponent<PlayerHandler>();
+        xpBarImage = xpBar.GetComponent<Image>();
+
     }
 }

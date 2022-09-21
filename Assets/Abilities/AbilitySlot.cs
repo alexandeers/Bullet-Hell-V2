@@ -20,6 +20,10 @@ public class AbilitySlot : MonoBehaviour
     [HideInInspector] Transform abilitySlotPrefab;
     RectTransform cooldownBar;
 
+    void Start() {
+        PlayerHandler.i.playerStats.onDamageInflicted += OnDamage;
+    }
+
     public void SetAbilitySlotPrefab(Transform prefab) {
         abilitySlotPrefab = prefab;
         cooldownBar = abilitySlotPrefab.GetChild(0).GetComponent<RectTransform>();
@@ -58,6 +62,10 @@ public class AbilitySlot : MonoBehaviour
         RefreshUI();
         if(ability.isTickable) 
             ability.Tick(transform.parent.parent.gameObject);
+    }
+
+    void OnDamage(float amount) {
+        ability.OnDamage(amount);
     }
 
     private void RefreshUI()

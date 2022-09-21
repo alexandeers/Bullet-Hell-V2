@@ -28,6 +28,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
     [SerializeField] Controls controls;
     UIBarsHandler guiHandler;
 
+    public event Action<float> onDamageInflicted;
+
     void Start() {
         GetReferences();
         LevelUp();
@@ -55,9 +57,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if(experience >= experienceNeededToLevel) LevelUp();
 
         guiHandler.RefreshUIComponents();
+    }
 
+    void LateUpdate() {
         health = Mathf.Clamp(health, 0f, maxHealth.Value);
-        shield = Mathf.Clamp(shield, 0f, maxShield.Value);
+        shield = Mathf.Clamp(shield, 0f, maxShield.Value); 
     }
 
     public bool AbsorbDamage(int damage, float knockback, Vector2 sourceDirection) {
@@ -110,12 +114,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
         shield = maxShield.Value * fraction;
     }
 
-    public void RegenerateShield(float amount) {
+    public void OnDamage(float amount) {
         if(shield >= maxShield.Value) {
             health += amount * 0.1f;
         } else {
             shield += amount * 0.5f;
         }
+
+        onDamageInflicted?.Invoke(amount);
     }
 
     private void DebugControls()

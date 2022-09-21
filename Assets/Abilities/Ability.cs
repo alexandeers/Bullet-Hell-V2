@@ -12,5 +12,6 @@ public class Ability : ScriptableObject
 
     public virtual void Activate(GameObject gameObject) {}
     public virtual void Tick(GameObject gameObject) {}
+    public virtual void OnDamage(float value) {}
 
 }

@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] protected float angleSpeed;
     [SerializeField] protected float knockback;
     [SerializeField] protected int damage;
+    [SerializeField] protected int xpDrop;
     protected float health;
 
     [Header("References")]
@@ -25,7 +26,6 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] protected SpriteRenderer[] sprites;
     protected Rigidbody2D rb;
     protected Canvas canvas;
-
     
     protected bool isDead;
     private float flashAmount;
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour, IDamageable
             foreach(SpriteRenderer sprite in sprites) {
                 sprite.material.SetFloat("_Flash", flashAmount);
             }
-        } 
+        }
     }
 
     void LateUpdate() => RefreshUI();
@@ -87,15 +87,12 @@ public class Enemy : MonoBehaviour, IDamageable
         return false;    
     }
 
-    void PlayAudio(AudioClip clip) {
-
-    }
-
     public void Knockback(float intensity, Vector2 source) => rb.AddForce(source * intensity, ForceMode2D.Impulse);
 
     public IEnumerator InitiateDeath() {
         isDead = true;
         deathParticles.Play();
+        PlayerHandler.i.playerStats.GainExperienceFlat(xpDrop);
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
@@ -103,7 +100,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public void HandleDeath()
     {
         if(!isDead) return;
-        // sprite.color = Color.Lerp(sprite.color, new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0f), Time.deltaTime * 2f);
         transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime * 3f);
         canvas.GetComponent<CanvasGroup>().alpha = 0f;
     }

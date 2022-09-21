@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dash Ability
   m_EditorClassIdentifier: 
   name: 
-  cooldownTime: 0.1
+  cooldownTime: 0.01
   activeTime: 0.1
   key: 304
   isTickable: 1
   dashVelocity: 75
-  maxCharges: 5
-  rechargeRate: 1
+  maxCharges: 3
+  rechargeRate: 2
   cooldown: 0.75

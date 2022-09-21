@@ -56,6 +56,8 @@ public class AbilitySlot : MonoBehaviour
         }
 
         RefreshUI();
+        if(ability.isTickable) 
+            ability.Tick(transform.parent.parent.gameObject);
     }
 
     private void RefreshUI()

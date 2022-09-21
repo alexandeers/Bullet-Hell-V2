@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Cinemachine;
 
@@ -21,17 +22,26 @@ public class CameraShake : MonoBehaviour
         noise = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
-    public void Shake(float intensity, float duration) {
+    public void Shake(float intensity, float duration, bool hitShake) {
         noise.m_AmplitudeGain = intensity;
         startingIntensity = intensity;
         shakeDuration = duration;
         shakeDurationTotal = duration;
+
+        if(hitShake)
+            StartCoroutine(HitStop());
     }
 
     void Update() {
         if(shakeDuration <= 0) { return; }
         shakeDuration -= Time.deltaTime;
         noise.m_AmplitudeGain = Mathf.Lerp(startingIntensity, 0f, 1f - (shakeDuration / shakeDurationTotal));
+    }
+
+    IEnumerator HitStop() {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.06f);
+        Time.timeScale = 1f;
     }
 
 }

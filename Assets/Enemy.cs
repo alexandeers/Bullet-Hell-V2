@@ -19,8 +19,9 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] protected float healthbarHeight;
     protected float indicatorTimer;
 
-    protected MaterialPropertyBlock propertyBlock;
     protected ParticleSystem deathParticles;
+    protected AudioSource audioSource;
+    [SerializeField] protected AudioClip onHit, onDie;
     [SerializeField] protected SpriteRenderer[] sprites;
     protected Rigidbody2D rb;
     protected Canvas canvas;
@@ -33,10 +34,9 @@ public class Enemy : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         canvas = transform.GetChild(0).GetComponent<Canvas>();
         deathParticles = transform.GetChild(1).GetComponent<ParticleSystem>();
+        audioSource = GetComponent<AudioSource>();
     
         health = maxHealth;
-        if (propertyBlock == null)
-            propertyBlock = new MaterialPropertyBlock();
     }
 
     void Update() {
@@ -44,11 +44,9 @@ public class Enemy : MonoBehaviour, IDamageable
         HandleDeath();
 
         if(flashAmount >= 0f) {
-            flashAmount -= Time.deltaTime * 10f;
+            flashAmount -= Time.deltaTime * 5f;
             foreach(SpriteRenderer sprite in sprites) {
-                sprite.GetPropertyBlock(propertyBlock);
-                propertyBlock.SetFloat("_Flash", flashAmount);
-                sprite.SetPropertyBlock(propertyBlock);
+                sprite.material.SetFloat("_Flash", flashAmount);
             }
         } 
     }
@@ -74,15 +72,23 @@ public class Enemy : MonoBehaviour, IDamageable
         healthBar.fillAmount = health / maxHealth;
 
         flashAmount = 1f;
-        Knockback(knockback, source);
         indicatorTimer = 0.5f;
+        Knockback(knockback, source);
 
-        if(health <= 0) {
+        var isDead = health <= 0;
+        audioSource.clip = isDead ? onDie : onHit;
+        audioSource.Play();
+
+        if(isDead) {
             StartCoroutine("InitiateDeath");
             return true;
         }
 
         return false;    
+    }
+
+    void PlayAudio(AudioClip clip) {
+
     }
 
     public void Knockback(float intensity, Vector2 source) => rb.AddForce(source * intensity, ForceMode2D.Impulse);

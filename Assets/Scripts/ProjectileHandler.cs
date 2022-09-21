@@ -86,6 +86,7 @@ public class ProjectileHandler : MonoBehaviour
 
         if(((1<<other.gameObject.layer) & enemyLayer) != 0)
         {
+            var didDie = false;
             if(!other.GetComponent<IDamageable>().AbsorbDamage((int)(damage + (damage * pierceCounter * 0.5f)), knockback, rb.velocity.normalized) ) {
                 projectileIsSet = false;
                 transform.SetParent(other.transform, true);
@@ -93,11 +94,12 @@ public class ProjectileHandler : MonoBehaviour
                 IncreaseParticleSize();
             } else {
                 PlayerHandler.i.playerStats.RegenerateShield(damage);
+                didDie = true;
             }
             
             DamagePopup.Create(transform.position, (int)(damage + (damage * pierceCounter * 0.5f)), charge);
             pierceCounter++;
-            CameraShake.i.Shake(1f + 2.5f * charge, 0.4f + charge/3f);
+            CameraShake.i.Shake(1f + 2.5f * charge, 0.4f + charge/3f, didDie && charge >= 0.8f);
         } else {
             IncreaseParticleSize();
             projectileIsSet = false;

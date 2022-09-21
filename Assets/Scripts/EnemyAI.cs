@@ -68,7 +68,7 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         flashAmount = 1f;
 
-        CameraShake.i.Shake(2.5f, 0.5f);
+        CameraShake.i.Shake(2.5f, 0.5f, false);
 
         if(health <= 0) {
             Destroy(gameObject);

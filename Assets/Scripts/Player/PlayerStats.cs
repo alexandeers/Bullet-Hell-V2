@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public bool isShieldEnabled = true;
 
     [SerializeField] Controls controls;
-    GUIHandler guiHandler;
+    UIBarsHandler guiHandler;
 
     void Start() {
         GetReferences();
@@ -147,6 +147,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
     }
 
     private void GetReferences(){
-        guiHandler = GetComponent<GUIHandler>();
+        guiHandler = GetComponent<UIBarsHandler>();
     }
 }

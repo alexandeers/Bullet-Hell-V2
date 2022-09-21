@@ -29,7 +29,7 @@ public class Sword : MonoBehaviour, IUseable
             if(!other.GetComponent<IDamageable>().AbsorbDamage((int)(damage), knockback, transform.position) ) {
                 PlayerHandler.i.playerStats.RegenerateShield(damage);
                 DamagePopup.Create(transform.position, (int)(damage), 1f);
-                CameraShake.i.Shake(1f + 2.5f, 0.4f);
+                CameraShake.i.Shake(1f + 2.5f, 0.4f, false);
             }
         }
     }

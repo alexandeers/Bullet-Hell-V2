@@ -14,7 +14,7 @@ public class AbilityHolder : MonoBehaviour
         GenerateSlots();
     }
 
-    private void GenerateSlots()
+    void GenerateSlots()
     {
         foreach(AbilitySlot ability in abilities) {
             Transform instantiatedPrefab = Instantiate(abilitySlotPrefab).GetComponent<Transform>();

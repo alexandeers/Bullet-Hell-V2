@@ -49,7 +49,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     void Update()
     {
-        DebugControls();
         if(Input.GetKeyDown(KeyCode.Space)) {
             experience = experienceNeededToLevel;
         }
@@ -124,33 +123,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         onDamageInflicted?.Invoke(amount);
     }
 
-    private void DebugControls()
-    {
-        int inverse = Input.GetKey(controls.debug_inverseEffect) ? -1 : 1;
 
-        if (Input.GetKeyDown(controls.debug_increaseHealth))
-        {
-            health += 50 * inverse;
-            guiHandler.OnDamaged(true, false);
-        }
-        if (Input.GetKeyDown(controls.debug_increaseStamina))
-        {
-            shield += 50 * inverse;
-            guiHandler.OnDamaged(false, true);
-        }
-        if (Input.GetKeyDown(controls.debug_increaseHealthMax))
-        {
-            maxHealth.AddModifier(new StatModifier(50*inverse, StatModType.Flat, this));
-        }
-        if (Input.GetKeyDown(controls.debug_increaseStaminaMax))
-        {
-            maxShield.BaseValue += 50 * inverse;
-        }
-
-        if(Input.GetKeyDown(KeyCode.G)) {
-            maxHealth.AddModifier(new StatModifier(0.5f, StatModType.PercentAdd, this));
-        }
-    }
 
     private void GetReferences(){
         guiHandler = GetComponent<UIBarsHandler>();

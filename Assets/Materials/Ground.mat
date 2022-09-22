@@ -50,7 +50,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cell_Size: 19.9
+    - _Cell_Size: 5
     - _EnableExternalAlpha: 0
     - _Noise_Scale: 343.6
     - _Pixelation: 0

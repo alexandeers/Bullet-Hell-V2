@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     public CharacterStat damage;
     public CharacterStat chargeRate;
+    public CharacterStat leech;
 
     //Experience
     public int level = 0;
@@ -27,13 +28,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     [SerializeField] Controls controls;
     UIBarsHandler guiHandler;
+    [SerializeField] int selfDamageAmount;
 
     public event Action<float> onDamageInflicted;
+    public event Action<float, bool> triggerFlash;
 
     void Start() {
         GetReferences();
         LevelUp();
-
         shield = 0;
     }
 
@@ -41,6 +43,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
         GetReferences();
         health *= maxHealth.Value;
         shield *= maxShield.Value;
+
+        isShieldEnabled = maxShield.Value != 0;
         
         health = Mathf.Clamp(health, 0f, maxHealth.Value);
         shield = Mathf.Clamp(shield, 0f, maxShield.Value);
@@ -49,9 +53,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            experience = experienceNeededToLevel;
-        }
+        if(Input.GetKeyDown(KeyCode.Space)) experience = experienceNeededToLevel;
+        if(Input.GetKeyDown(KeyCode.F)) AbsorbDamage(selfDamageAmount);
+
+        isShieldEnabled = maxShield.Value != 0;
 
         if(experience >= experienceNeededToLevel) LevelUp();
 
@@ -63,19 +68,22 @@ public class PlayerStats : MonoBehaviour, IDamageable
         shield = Mathf.Clamp(shield, 0f, maxShield.Value); 
     }
 
-    public bool AbsorbDamage(int damage, float knockback, Vector2 sourceDirection) {
+    public bool AbsorbDamage(int damage, float knockback = 0f, Vector2 sourceDirection = new Vector2()) {
         if(shield - damage >= 0) {
             shield -= damage;
             guiHandler.OnDamaged(false, true);
+            triggerFlash?.Invoke(damage, true);
         } else {
             var remainingDamage = damage - shield;
             shield = 0f;
             health -= remainingDamage;
             guiHandler.OnDamaged(true, true);
+            triggerFlash?.Invoke(damage, false);
         }
 
-        Knockback(knockback, sourceDirection);
-
+        if(knockback != 0f)
+            Knockback(knockback, sourceDirection);
+        
         return true;
     }
 
@@ -87,7 +95,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
         level++;
         experience = experience -= experienceNeededToLevel;
         IncreaseMaxHealth();
-        IncreaseMaxMana();
         experienceNeededToLevel = CalculateRequiredXP();
     }
 
@@ -107,25 +114,24 @@ public class PlayerStats : MonoBehaviour, IDamageable
         health = maxHealth.Value * fraction;
     }
 
-    void IncreaseMaxMana() {
-        // maxShield += (int)(((float)maxShield * 0.01f) * ((100 - level) * 0.065f));
-        float fraction = shield / maxShield.Value;
-        shield = maxShield.Value * fraction;
-    }
-
-    public void OnDamage(float amount) {
-        if(shield >= maxShield.Value) {
-            health += amount * 0.1f;
+    public void Leech(float amount) {
+        if(shield >= maxShield.Value || !isShieldEnabled) {
+            health += amount * (leech.Value / 300f);
         } else {
-            shield += amount * 0.5f;
+            shield += amount * (leech.Value / 100f);
         }
 
         onDamageInflicted?.Invoke(amount);
+        triggerFlash?.Invoke(0f, false);
     }
 
 
 
     private void GetReferences(){
         guiHandler = GetComponent<UIBarsHandler>();
+    }
+
+    public float GetHealthNormalized() {
+        return health / maxHealth.Value;
     }
 }

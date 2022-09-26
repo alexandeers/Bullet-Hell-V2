@@ -11,7 +11,8 @@ public enum StatType {
     Health,
     Shield,
     Damage,
-    ChargeRate
+    ChargeRate,
+    Leech
 }
 
 [System.Serializable]
@@ -34,6 +35,7 @@ public class EquippableItem : Item
             if(modifier.statType == StatType.Shield) c.maxShield.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
             if(modifier.statType == StatType.Damage) c.damage.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
             if(modifier.statType == StatType.ChargeRate) c.chargeRate.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
+            if(modifier.statType == StatType.Leech) c.leech.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
         }
     }
 
@@ -43,6 +45,7 @@ public class EquippableItem : Item
             if(modifier.statType == StatType.Shield) c.maxShield.RemoveAllModifiersFromSource(this);
             if(modifier.statType == StatType.Damage) c.damage.RemoveAllModifiersFromSource(this);
             if(modifier.statType == StatType.ChargeRate) c.chargeRate.RemoveAllModifiersFromSource(this);
+            if(modifier.statType == StatType.Leech) c.leech.RemoveAllModifiersFromSource(this);
         }
     }
 }

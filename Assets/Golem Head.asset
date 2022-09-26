@@ -16,13 +16,7 @@ MonoBehaviour:
   icon: {fileID: -3214272448804136580, guid: 0193a293270d5f247a5ebc009c8de825, type: 3}
   description: Cool description
   modifiers:
-  - statType: 0
-    statModType: 100
-    value: 100
-  - statType: 1
-    statModType: 100
-    value: 250
   - statType: 2
     statModType: 100
-    value: 150
+    value: 75
   equipmentType: 0

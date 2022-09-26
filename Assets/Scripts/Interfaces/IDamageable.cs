@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public bool AbsorbDamage(int damage, float knockback, Vector2 source);
+    public bool AbsorbDamage(int damage, float knockback = 0f, Vector2 source = new Vector2());
 }
 
 public interface IDamager 

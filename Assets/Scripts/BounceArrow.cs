@@ -46,7 +46,7 @@ public class BounceArrow : Projectile
                 hitParticles.Play();
                 IncreaseParticleSize();
             } else {
-                PlayerHandler.i.playerStats.OnDamage(damage);
+                PlayerHandler.i.playerStats.Leech(damage);
                 didDie = true;
             }
             DamagePopup.Create(transform.position, (int)(damage + (damage * pierceDeathCounter * 0.5f)), charge);

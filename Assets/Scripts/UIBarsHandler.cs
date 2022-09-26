@@ -41,9 +41,9 @@ public class UIBarsHandler : MonoBehaviour
         // var hpBarSizeSolver = Mathf.Log10(playerStats.maxHealth.Value/3) * (0.2f * playerStats.maxHealth.Value) + 90f;
         // var hpBarSizeSolver = 800f*(1-Mathf.Exp(-0.001f*playerStats.maxHealth.Value)) + 120f;
         // var manaBarSizeSolver = Mathf.Log10(playerStats.maxMana/3) * (0.2f * playerStats.maxMana) + 70f;
-        var hpBarSizeSolver = (playerStats.health * 0.5f);
-        var manaBarSizeSolver = (playerStats.maxShield.Value * 0.2f) + 50f;
-        var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 0.5f);
+        var hpBarSizeSolver = (playerStats.health * 0.3f);
+        var manaBarSizeSolver = (playerStats.maxShield.Value * 0.3f);
+        var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 0.3f);
         var healthNormalized = playerStats.health / playerStats.maxHealth.Value;
         var manaNormalized = playerStats.shield / playerStats.maxShield.Value;
 
@@ -52,7 +52,7 @@ public class UIBarsHandler : MonoBehaviour
             container.anchoredPosition = new Vector2(((-totalHealthMana) / 2f) - 5f, container.anchoredPosition.y);
         } else {
             manaBackground.gameObject.SetActive(false);
-            container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 0.5f) / 2f, container.anchoredPosition.y);
+            container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 0.3f) / 2f, container.anchoredPosition.y);
         } 
         
 
@@ -61,8 +61,6 @@ public class UIBarsHandler : MonoBehaviour
 
         manaBackground.sizeDelta = new Vector2(manaBarSizeSolver, manaBackground.sizeDelta.y);
         manaBar.sizeDelta = new Vector2(manaBackground.sizeDelta.x * manaNormalized, manaBar.sizeDelta.y);
-
-        // container.anchoredPosition = new Vector2(-container.GetComponent<HorizontalLayoutGroup>().minWidth / 2f, container.anchoredPosition.y);
 
         xpBackground.sizeDelta = new Vector2(-container.anchoredPosition.x*2, xpBackground.sizeDelta.y);
         xpBar.sizeDelta = xpBackground.sizeDelta;

@@ -27,7 +27,7 @@ public class Sword : MonoBehaviour, IUseable
         if(((1<<other.gameObject.layer) & enemyLayer) != 0)
         {
             if(!other.GetComponent<IDamageable>().AbsorbDamage((int)(damage), knockback, transform.position) ) {
-                PlayerHandler.i.playerStats.OnDamage(damage);
+                PlayerHandler.i.playerStats.Leech(damage);
                 DamagePopup.Create(transform.position, (int)(damage), 1f);
                 CameraShake.i.Shake(1f + 2.5f, 0.4f, false);
             }

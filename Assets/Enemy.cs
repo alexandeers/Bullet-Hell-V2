@@ -40,16 +40,17 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     void Update() {
-        HandleBehaviour();
         HandleDeath();
 
-        if(flashAmount >= 0f) {
+        if(flashAmount >= 0.01f) {
             flashAmount -= Time.deltaTime * 5f;
             foreach(SpriteRenderer sprite in sprites) {
                 sprite.material.SetFloat("_Flash", flashAmount);
             }
         }
     }
+
+    private void FixedUpdate() => HandleBehaviour();
 
     void LateUpdate() => RefreshUI();
 

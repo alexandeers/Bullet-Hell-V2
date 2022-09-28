@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum EquipmentType {
     Shard,
-    Unavailable
+    Weapon
 }
 
 public enum StatType {

@@ -29,20 +29,7 @@ public class EquipmentPanel : MonoBehaviour
         }
     }
 
-    void Update() {
-        
-        if(Input.GetKeyDown(KeyCode.F)) {
-            print("SUBSCRIBED");
-            for (int i = 0; i < equipmentSlots.Length; i++)
-            {
-                // equipmentSlots[i].OnRightClickEvent += OnItemRightClickedEvent;
-            }
-        }
-    }
-
-    void OnValidate() {
-        equipmentSlots = equipmentSlotsParent.GetComponentsInChildren<EquipmentSlot>();
-    }
+    void OnValidate() => equipmentSlots = equipmentSlotsParent.GetComponentsInChildren<EquipmentSlot>();
 
 
     public bool AddItem(EquippableItem item, out EquippableItem previousItem) 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] StatPanel statPanel;
     [SerializeField] ItemTooltip itemTooltip;
     [SerializeField] Image draggableItem;
+
+    public event Action<WeaponItem> onWeaponEquip;
+    public event Action onWeaponUnequip;
 
     ItemSlot draggedSlot;
 
@@ -54,6 +58,9 @@ public class InventoryManager : MonoBehaviour
         if(equippableItem != null)
         {
             Equip(equippableItem);
+
+            if(equippableItem is WeaponItem)
+                onWeaponEquip?.Invoke(equippableItem as WeaponItem);
         }
     }
 
@@ -62,6 +69,9 @@ public class InventoryManager : MonoBehaviour
         if(equippableItem != null)
         {
             Unequip(equippableItem);
+            
+            if(equippableItem is WeaponItem)
+                onWeaponUnequip?.Invoke();
         }
     }
 

@@ -39,7 +39,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Feather: 4
-    - _FullscreenIntensity: 1
+    - _FullscreenIntensity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Strength: 0.71

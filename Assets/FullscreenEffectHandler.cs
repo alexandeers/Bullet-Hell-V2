@@ -45,18 +45,21 @@ public class FullscreenEffectHandler : MonoBehaviour
                 
                 edgeStrength = 1f;
                 edgeMaterial.SetColor("_Color", shieldColor);
-                glitchStrength = damage / (playerStats.maxHealth.Value + playerStats.maxShield.Value);
+                if(damage != 0)
+                    glitchStrength = 0.2f + (damage*0.75f / (playerStats.maxHealth.Value + playerStats.maxShield.Value));
             }
             else 
             {
                 doLerpEdge = false;
                 doLerpColor = true;
 
-                edgeStrength = 1f - playerStats.GetHealthNormalized() * (1f/lowHealthThreshold);
+                edgeStrength = 1f - (playerStats.GetHealthNormalized() * (1f/lowHealthThreshold) - 0.5f);
                 lerpColor = shieldColor;
                 lerpColorTarget = healthColor;
                 edgeMaterial.SetColor("_Color", lerpColor);
-                glitchStrength = damage / (playerStats.maxHealth.Value + playerStats.shield);
+
+                if(damage != 0)
+                    glitchStrength = 0.2f + (damage*0.75f / (playerStats.maxHealth.Value + playerStats.shield));
             }
         } 
         else 
@@ -64,9 +67,11 @@ public class FullscreenEffectHandler : MonoBehaviour
             doLerpEdge = false;
             doLerpColor = false;
 
-            edgeStrength = 1f - playerStats.GetHealthNormalized() * (1f/lowHealthThreshold);
+            edgeStrength = 1f - (playerStats.GetHealthNormalized() * (1f/lowHealthThreshold) - 0.5f);
             edgeMaterial.SetColor("_Color", healthColor);
-            glitchStrength = damage / (playerStats.maxHealth.Value);
+            
+            if(damage != 0)
+                glitchStrength = 0.2f + (damage*0.75f / (playerStats.maxHealth.Value));
         }
     }
 

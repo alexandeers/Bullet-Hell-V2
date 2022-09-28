@@ -38,9 +38,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FlashAmount: 0.000908967
-    - _isShielded: 0
+    - _FlashAmount: 0.00070375594
+    - _isShielded: 1
     m_Colors:
     - _Health: {r: 0.8862745, g: 0.44313726, b: 0.42352942, a: 0}
-    - _Shield: {r: 0.8470588, g: 1.403922, b: 1.772549, a: 0}
+    - _Shield: {r: 0, g: 58.22745, b: 95.87451, a: 1}
   m_BuildTextureStacks: []

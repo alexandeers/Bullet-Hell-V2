@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum EquipmentType {
@@ -12,7 +10,8 @@ public enum StatType {
     Shield,
     Damage,
     ChargeRate,
-    Leech
+    Leech,
+    DashCharges
 }
 
 [System.Serializable]
@@ -36,6 +35,8 @@ public class EquippableItem : Item
             if(modifier.statType == StatType.Damage) c.damage.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
             if(modifier.statType == StatType.ChargeRate) c.chargeRate.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
             if(modifier.statType == StatType.Leech) c.leech.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
+
+            if(modifier.statType == StatType.DashCharges) c.dashCharges.AddModifier(new StatModifier(modifier.value, modifier.statModType, this));
         }
     }
 
@@ -46,6 +47,8 @@ public class EquippableItem : Item
             if(modifier.statType == StatType.Damage) c.damage.RemoveAllModifiersFromSource(this);
             if(modifier.statType == StatType.ChargeRate) c.chargeRate.RemoveAllModifiersFromSource(this);
             if(modifier.statType == StatType.Leech) c.leech.RemoveAllModifiersFromSource(this);
+
+            if(modifier.statType == StatType.DashCharges) c.dashCharges.RemoveAllModifiersFromSource(this);
         }
     }
 }

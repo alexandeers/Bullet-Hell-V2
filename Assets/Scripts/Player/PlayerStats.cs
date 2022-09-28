@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public CharacterStat chargeRate;
     public CharacterStat leech;
 
+    public CharacterStat dashCharges;
+
     //Experience
     public int level = 0;
     public int experience, experienceNeededToLevel;

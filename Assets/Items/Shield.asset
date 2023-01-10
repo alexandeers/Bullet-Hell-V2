@@ -18,5 +18,5 @@ MonoBehaviour:
   modifiers:
   - statType: 1
     statModType: 100
-    value: 75
+    value: 45
   equipmentType: 0

@@ -5220,11 +5220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ba8f3c8aa9aec40aff80bc9f145d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 140
+  maxHealth: 28
   moveSpeed: 65
   angleSpeed: 400
   knockback: 40
-  damage: 60
+  damage: 25
   xpDrop: 7
   healthBar: {fileID: 5526726385044021237}
   indicator: {fileID: 5526726385594198830}

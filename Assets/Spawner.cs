@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject prefabToSpawn;
     [SerializeField] float delay;
     [SerializeField] int maxAmount;
+    [SerializeField] SurvivalTimer timer;
 
     List<GameObject> amountOfPrefabs = new List<GameObject>();
 

@@ -13,9 +13,15 @@ public class PlayerFlashHandler : MonoBehaviour
     }
 
     void Update() {
+        if(PlayerHandler.i.playerStats.shield > 0)
+            playerMaterial.SetFloat("_FlashAmount", 0.1f);
+
         if(!isTimerOn) return;
 
-        playerMaterial.SetFloat("_FlashAmount", timer / timerDuration);
+        if(PlayerHandler.i.playerStats.shield > 0)
+            playerMaterial.SetFloat("_FlashAmount", (timer / timerDuration) + 0.1f);
+        else
+            playerMaterial.SetFloat("_FlashAmount", timer / timerDuration);
         timer -= Time.deltaTime;
 
         if(timer < 0f) {

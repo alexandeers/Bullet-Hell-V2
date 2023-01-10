@@ -41,18 +41,20 @@ public class UIBarsHandler : MonoBehaviour
         // var hpBarSizeSolver = Mathf.Log10(playerStats.maxHealth.Value/3) * (0.2f * playerStats.maxHealth.Value) + 90f;
         // var hpBarSizeSolver = 800f*(1-Mathf.Exp(-0.001f*playerStats.maxHealth.Value)) + 120f;
         // var manaBarSizeSolver = Mathf.Log10(playerStats.maxMana/3) * (0.2f * playerStats.maxMana) + 70f;
-        var hpBarSizeSolver = (playerStats.health * 0.3f);
-        var manaBarSizeSolver = (playerStats.maxShield.Value * 0.3f);
-        var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 0.3f);
+        var hpBarSizeSolver = (playerStats.health * 1.5f);
+        var manaBarSizeSolver = (playerStats.maxShield.Value * 1.5f);
+        var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 1.5f);
         var healthNormalized = playerStats.health / playerStats.maxHealth.Value;
         var manaNormalized = playerStats.shield / playerStats.maxShield.Value;
 
         if(playerStats.isShieldEnabled) {
             manaBackground.gameObject.SetActive(true);
             container.anchoredPosition = new Vector2(((-totalHealthMana) / 2f) - 5f, container.anchoredPosition.y);
+            container.GetComponent<HorizontalLayoutGroup>().spacing = 10 + Mathf.Clamp(hpText.textBounds.size.x - hpBackground.sizeDelta.x, 0, Mathf.Infinity);
+            manaText.rectTransform.anchoredPosition = new Vector2(0, 0);
         } else {
             manaBackground.gameObject.SetActive(false);
-            container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 0.3f) / 2f, container.anchoredPosition.y);
+            container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 1.5f) / 2f, container.anchoredPosition.y);
         } 
         
 

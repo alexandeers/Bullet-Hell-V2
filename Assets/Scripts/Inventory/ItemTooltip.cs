@@ -29,7 +29,11 @@ public class ItemTooltip : MonoBehaviour
             if(item.modifiers[i].statType == StatType.ChargeRate) { color = "fff97a"; }
 
             var symbol = item.modifiers[i].statModType == StatModType.Flat ? "" : "%";
-            itemModifiers[i].text = $"<sprite={(int)item.modifiers[i].statType}><color=#{color}> +{item.modifiers[i].value}{symbol}";
+
+            if((int)item.modifiers[i].statType <= 3) 
+                itemModifiers[i].text = $"<sprite={(int)item.modifiers[i].statType}><color=#{color}> +{item.modifiers[i].value}{symbol}";
+            else
+                itemModifiers[i].text = "";
         }
 
         for (; i < itemModifiers.Length; i++) {

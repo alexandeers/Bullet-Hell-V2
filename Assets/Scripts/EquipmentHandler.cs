@@ -23,6 +23,7 @@ public class EquipmentHandler : MonoBehaviour
 
     void OnWeaponEquip(WeaponItem weapon)
     {
+        if(weaponPrefab) return;
         weaponPrefab = Instantiate(weapon.weaponPrefab);
         weaponPrefab.transform.SetParent(equipPivot.GetChild(0), false);
         weaponPrefab.transform.localScale = Vector3.one * 0.75f;

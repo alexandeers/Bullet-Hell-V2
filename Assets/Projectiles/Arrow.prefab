@@ -5006,7 +5006,7 @@ MonoBehaviour:
     m_Bits: 128
   name: White Arrow
   speed: 40
-  damage: 35
+  damage: 7
   knockback: 20
   pierce: 0
   rb: {fileID: 8744528064764270011}

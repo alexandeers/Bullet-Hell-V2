@@ -18,6 +18,5 @@ MonoBehaviour:
   key: 304
   isTickable: 1
   dashVelocity: 75
-  maxCharges: 3
   rechargeRate: 2
   cooldown: 0.75

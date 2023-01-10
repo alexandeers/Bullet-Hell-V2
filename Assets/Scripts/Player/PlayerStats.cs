@@ -27,10 +27,13 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public float additionMultiplier, powerMultiplier, divisonMultiplier;
 
     public bool isShieldEnabled = true;
+    public bool isShielded = false;
 
     [SerializeField] Controls controls;
     UIBarsHandler guiHandler;
     [SerializeField] int selfDamageAmount;
+    [SerializeField] ParticleSystem shieldBreakParticles;
+    
 
     public event Action<float> onDamageInflicted;
     public event Action<float, bool> triggerFlash;
@@ -76,6 +79,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
             guiHandler.OnDamaged(false, true);
             triggerFlash?.Invoke(damage, true);
         } else {
+            if(shield > 0) {
+                shieldBreakParticles.Stop();
+                shieldBreakParticles.Play();
+            }
             var remainingDamage = damage - shield;
             shield = 0f;
             health -= remainingDamage;
@@ -112,7 +119,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     void IncreaseMaxHealth() {
         // maxHealth.AddModifier( new StatModifier((int)(((float)maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 5f), StatModType.Flat, this) );
         float fraction = health / maxHealth.Value;
-        maxHealth.BaseValue += (int)(maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 5f;
+        maxHealth.BaseValue += (int)(maxHealth.BaseValue * 0.01f) * ((200 - level) * 0.01f) + 3f;
         health = maxHealth.Value * fraction;
     }
 

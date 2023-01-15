@@ -11,6 +11,7 @@ public class PlayerHandler : MonoBehaviour
     PlayerMovement playerMovement;
     public PlayerStats playerStats;
     UIBarsHandler guiHandler;
+    public ArrowHandler arrowHandler;
 
     [SerializeField] CanvasGroup canvas;
     [SerializeField] RectTransform container;
@@ -27,6 +28,7 @@ public class PlayerHandler : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerStats = GetComponent<PlayerStats>();
         guiHandler = GetComponent<UIBarsHandler>();
+        arrowHandler = GetComponent<ArrowHandler>();
 
         if(i == null) {
             i = this;

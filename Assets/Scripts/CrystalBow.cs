@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class CrystalBow : MonoBehaviour, IUseable
 {
-
-    [SerializeField] GameObject projectile;
     [SerializeField] Transform bulletPosition;
     [SerializeField] Transform chargeTransform;
     BowState state = BowState.Ready;
@@ -45,7 +43,7 @@ public class CrystalBow : MonoBehaviour, IUseable
             loadedArrow.GetComponent<SpriteRenderer>().color = initialColor;
         }
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && PlayerHandler.i.arrowHandler.DepleteArrow(loadedArrow))
         {
             state = BowState.Charging;
         }
@@ -76,6 +74,19 @@ public class CrystalBow : MonoBehaviour, IUseable
         }
     }
 
+    void Start() => PlayerHandler.i.arrowHandler.onChangeArrow += OnChangeArrow;
+
+    void OnDestroy() => PlayerHandler.i.arrowHandler.onChangeArrow -= OnChangeArrow;
+
+    void OnChangeArrow() {
+        if(loadedArrow)
+            Destroy(loadedArrow.gameObject);
+        loadedArrow = null;
+        shootOffset = 0.5f + charge;
+        cooldownDuration = cooldownTime;
+        state = BowState.Cooldown;
+    }
+
     private void Update() {
         if(loadedArrow)
             loadedArrow.GetComponent<SpriteRenderer>().color = Color.Lerp(loadedArrow.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * 5f);
@@ -92,7 +103,7 @@ public class CrystalBow : MonoBehaviour, IUseable
     }
 
     Projectile ReadyArrow() {
-        return Instantiate(projectile, bulletPosition.position, bulletPosition.rotation).GetComponent<Projectile>();
+        return Instantiate(PlayerHandler.i.arrowHandler.equippedArrow, bulletPosition.position, bulletPosition.rotation).GetComponent<Projectile>();
     }
 
     void ShootArrow() {

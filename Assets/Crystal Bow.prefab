@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4c6e35b7b8f18428500b782e838616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8744528064764270007, guid: 17d308ad75503874d87a78debcabf0cb, type: 3}
+  projectile: {fileID: 8744528064764270007, guid: e1e5f6ff0cd870e4cb288b996d4047e1, type: 3}
   bulletPosition: {fileID: 3621000240496276861}
   chargeTransform: {fileID: 3621000241600121710}
   cooldownTime: 0.8

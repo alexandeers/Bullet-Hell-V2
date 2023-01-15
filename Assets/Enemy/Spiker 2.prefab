@@ -4949,7 +4949,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a38ebb23c8fdd2c4b8f9cc0a0db4a2b7, type: 2}
+  - {fileID: 2100000, guid: 6b5a7484d4690d640a09042d431f3731, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5162,7 +5162,7 @@ Transform:
   m_GameObject: {fileID: 5526726385611344421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.463505, y: -7.1, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5526726387002105102}
@@ -5220,12 +5220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ba8f3c8aa9aec40aff80bc9f145d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 84
-  moveSpeed: 70
+  maxHealth: 42
+  moveSpeed: 65
   angleSpeed: 400
   knockback: 40
-  damage: 65
-  xpDrop: 21
+  damage: 35
+  xpDrop: 16
   healthBar: {fileID: 5526726385044021237}
   indicator: {fileID: 5526726385594198830}
   healthbarHeight: 1.5

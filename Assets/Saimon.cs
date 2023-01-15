@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Saimon : Enemy, IDamageable
 {
 
@@ -14,6 +12,31 @@ public class Saimon : Enemy, IDamageable
     }
 
     SaimonState state;
-    
 
+    void Update() {
+        switch (state)
+        {
+            case SaimonState.Chase:
+                Chase();
+                break;
+            case SaimonState.Idle:
+                Idle();
+                break;
+            case SaimonState.LaserAttack:
+                LaserAttack();
+                break;
+        }
+    }
+
+    void Chase() {
+
+    }
+
+    void Idle() {
+
+    }
+
+    void LaserAttack() {
+        
+    }
 }

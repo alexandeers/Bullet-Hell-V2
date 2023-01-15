@@ -55,8 +55,7 @@ public class UIBarsHandler : MonoBehaviour
         } else {
             manaBackground.gameObject.SetActive(false);
             container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 1.5f) / 2f, container.anchoredPosition.y);
-        } 
-        
+        }
 
         hpBackground.sizeDelta = new Vector2(Mathf.Lerp(hpBackground.sizeDelta.x, hpBarSizeSolver, Time.deltaTime * 3f), hpBackground.sizeDelta.y);
         hpBar.sizeDelta = new Vector2(hpBarSizeSolver, hpBar.sizeDelta.y);

@@ -6,7 +6,7 @@ using TMPro;
 public class SurvivalTimer : MonoBehaviour
 {
     TextMeshProUGUI timerText;
-    float absoluteTimerValue = 55f;
+    public float absoluteTimerValue = 55f;
 
     void Start() {
         timerText = GetComponent<TextMeshProUGUI>();
@@ -26,6 +26,6 @@ public class SurvivalTimer : MonoBehaviour
             timerText.text = $"{minutesFloored}:{seconds}";
         else
             timerText.text = $"{minutesFloored}:0{seconds}";
-        
     }
+
 }

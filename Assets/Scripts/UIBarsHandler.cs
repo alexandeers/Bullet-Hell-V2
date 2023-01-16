@@ -41,9 +41,9 @@ public class UIBarsHandler : MonoBehaviour
         // var hpBarSizeSolver = Mathf.Log10(playerStats.maxHealth.Value/3) * (0.2f * playerStats.maxHealth.Value) + 90f;
         // var hpBarSizeSolver = 800f*(1-Mathf.Exp(-0.001f*playerStats.maxHealth.Value)) + 120f;
         // var manaBarSizeSolver = Mathf.Log10(playerStats.maxMana/3) * (0.2f * playerStats.maxMana) + 70f;
-        var hpBarSizeSolver = (playerStats.health * 1.5f);
-        var manaBarSizeSolver = (playerStats.maxShield.Value * 1.5f);
-        var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 1.5f);
+        var hpBarSizeSolver = (playerStats.health * 1.0f);
+        var manaBarSizeSolver = (playerStats.maxShield.Value * 1.0f);
+        var totalHealthMana = manaBarSizeSolver + (playerStats.maxHealth.Value * 1.0f);
         var healthNormalized = playerStats.health / playerStats.maxHealth.Value;
         var manaNormalized = playerStats.shield / playerStats.maxShield.Value;
 
@@ -54,7 +54,7 @@ public class UIBarsHandler : MonoBehaviour
             manaText.rectTransform.anchoredPosition = new Vector2(0, 0);
         } else {
             manaBackground.gameObject.SetActive(false);
-            container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 1.5f) / 2f, container.anchoredPosition.y);
+            container.anchoredPosition = new Vector2(-(playerStats.maxHealth.Value * 1.0f) / 2f, container.anchoredPosition.y);
         }
 
         hpBackground.sizeDelta = new Vector2(Mathf.Lerp(hpBackground.sizeDelta.x, hpBarSizeSolver, Time.deltaTime * 3f), hpBackground.sizeDelta.y);
@@ -82,27 +82,27 @@ public class UIBarsHandler : MonoBehaviour
     }
 
     public void OnDamaged(bool healthDamage, bool shieldDamage) { //Väldigt ooptimerad funktion men jag orkar inte.
+        var beforeDamageFillAmountHealth = hpBar.sizeDelta.x;
+        var beforeDamageFillAmountMana = manaBar.sizeDelta.x;
         if(healthDamage) {
             RectTransform damagedBar = Instantiate(damagedBarTemplate, transform).GetComponent<RectTransform>();
-            var beforeDamageFillAmount = hpBar.sizeDelta.x;
             RefreshUIComponents();
             damagedBar.SetParent(hpBackground);
             damagedBar.localScale = new Vector3(1f, 1f, 1f);
             damagedBar.gameObject.SetActive(true);
             damagedBar.anchoredPosition = new Vector2(hpBar.sizeDelta.x, 0);
-            damagedBar.sizeDelta = new Vector2(beforeDamageFillAmount - hpBar.sizeDelta.x, damagedBar.sizeDelta.y);
+            damagedBar.sizeDelta = new Vector2(beforeDamageFillAmountHealth - hpBar.sizeDelta.x, damagedBar.sizeDelta.y);
         }
 
         if(shieldDamage) {
             RectTransform damagedBar = Instantiate(damagedBarTemplate, transform).GetComponent<RectTransform>();
-            var beforeDamageFillAmount = manaBar.sizeDelta.x;
             RefreshUIComponents();
             damagedBar.SetParent(manaBackground);
             damagedBar.GetComponent<Image>().color = Color.white;
             damagedBar.localScale = new Vector3(1f, 1f, 1f);
             damagedBar.gameObject.SetActive(true);
             damagedBar.anchoredPosition = new Vector2(manaBar.sizeDelta.x, 0);
-            damagedBar.sizeDelta = new Vector2(beforeDamageFillAmount - manaBar.sizeDelta.x, damagedBar.sizeDelta.y);
+            damagedBar.sizeDelta = new Vector2(beforeDamageFillAmountMana - manaBar.sizeDelta.x, damagedBar.sizeDelta.y);
         }
     }
 
